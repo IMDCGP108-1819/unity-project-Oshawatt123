@@ -6,6 +6,9 @@ public class destroyer : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		Destroy (other.gameObject);
-		Destroy (gameObject);
+	}
+
+	public void destroyself(){
+		Destroy (this.gameObject);
 	}
 }

@@ -304,11 +304,6 @@ Prefab:
       propertyPath: staminaText
       value: 
       objectReference: {fileID: 1538021274}
-    - target: {fileID: 114586403205096688, guid: aecc4d959048f9b4fbabb7bbd6053cfc,
-        type: 2}
-      propertyPath: swordDMG
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aecc4d959048f9b4fbabb7bbd6053cfc, type: 2}
   m_IsPrefabAsset: 0

@@ -30,10 +30,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float playerHealth;
 	public float maxHealth;
 
-	public float swordDMG;
 	private bool attacking = false;
-	private bool animAttack;
-	private bool canAttack = true;
 
 	//UI Variables
 	public Text staminaText;
@@ -43,8 +40,6 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-
-		animAttack = playerAnim.GetBool ("isAttacking");
 		animRolling = playerAnim.GetBool ("isRolling");
 
 		//Gets axis values for movement
@@ -60,7 +55,7 @@ public class PlayerMovement : MonoBehaviour {
 		rigidBody.velocity = movement * moveSpeed; //apply movement as velocity (keeps collisions going)
 
 		//Roll
-		if (canRoll && !attacking && Input.GetAxisRaw ("Roll") == 1 && animRolling == false && animAttack == false && stamina > 20 && rigidBody.velocity.magnitude > 0) { // fix co-routine
+		if (canRoll && !attacking && Input.GetAxisRaw ("Roll") == 1 && animRolling == false && stamina > 20 && rigidBody.velocity.magnitude > 0) { // fix co-routine
 			playerRoll();
 		}
 		//Add roll force
@@ -78,12 +73,10 @@ public class PlayerMovement : MonoBehaviour {
 	private void playerRoll(){
 		stamina -= rollStamina;
 		canRoll = false;
-		canAttack = false;
 		playerAnim.SetBool ("isRolling", true);
 	}
 
 	private IEnumerator EndRoll() {
-		canAttack = true;
 		yield return new WaitForSeconds (0.2f);
 		canRoll = true;
 	}

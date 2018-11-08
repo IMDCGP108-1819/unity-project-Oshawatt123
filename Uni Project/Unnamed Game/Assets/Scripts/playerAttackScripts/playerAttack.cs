@@ -7,6 +7,7 @@ public class playerAttack : MonoBehaviour {
 	// Timing Variables
 	private float attackTime;
 	public float attackStartTime;
+	private bool notAlreadyAttacked = true;
 
 	// Collision Variables
 	public Transform attackPos;
@@ -16,12 +17,18 @@ public class playerAttack : MonoBehaviour {
 
 	// Damage variables
 	public float damage;
+
+	// Animation variables
+	public Animator playerAnim;
 	
 	// Update is called once per frame
 	void Update () {
 		if (attackTime <= 0) {
-			if (Input.GetAxisRaw ("Attack") == 1) {
+			notAlreadyAttacked = true;
+			if (Input.GetAxisRaw ("Attack") == 1 && notAlreadyAttacked == true) {
+				playerAnim.SetBool ("isAttacking", true);
 				attackTime = attackStartTime;
+				notAlreadyAttacked = false;
 				Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll (attackPos.position, new Vector2 (attackRangeX, attackRangeY), 0, mobLayer);
 				for (int i = 0; i < enemiesToDamage.Length; i++) {
 					enemiesToDamage [i].GetComponentInParent<Enemy_Basic> ().takeDamage (damage);

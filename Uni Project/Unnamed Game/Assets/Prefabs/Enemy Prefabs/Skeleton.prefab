@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61666584564311956}
   - component: {fileID: 50271640346242972}
   - component: {fileID: 114300004996385132}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Skeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 4070164192297292}
   - component: {fileID: 212283104978152146}
   - component: {fileID: 61219333868500830}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkeletonHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1136142009006298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.997396, y: 0.12827201, z: 0}
+  m_LocalPosition: {x: 8.705839, y: -20.546116, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4070164192297292}

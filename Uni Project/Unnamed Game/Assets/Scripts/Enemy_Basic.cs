@@ -19,6 +19,10 @@ public class Enemy_Basic : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		hitBoxTransform.localPosition = new Vector3 (0, 0, 0);
+		if (health <= 0) {
+			Debug.Log ("Ded m8");
+			Destroy (this.gameObject);
+		}
 	}
 
 	public void takeDamage(float damage){

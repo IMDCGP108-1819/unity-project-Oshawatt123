@@ -14,7 +14,7 @@ public class roomTemplates : MonoBehaviour {
 	public List<GameObject> rooms;
 
 	public float waitTime;
-	private bool spawnedBoss;
+	public bool spawnedBoss;
 	public GameObject boss;
 
 	private destroyer Destroyer;
@@ -25,9 +25,9 @@ public class roomTemplates : MonoBehaviour {
 
 	void Update(){
 		if (waitTime <= 0 && !spawnedBoss) {
-			Instantiate (boss, rooms[rooms.Count-1].transform.position, Quaternion.identity);
-			Destroyer.destroyself ();
 			spawnedBoss = true;
+			Destroyer.destroyself();
+			Instantiate (boss, rooms[rooms.Count-1].transform.position, Quaternion.identity);
 		} else {
 			waitTime -= Time.deltaTime;
 		}

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour {
 
 	//Exposed gameObjects
-	public GameObject enemy;
+	//public GameObject enemy;
 
 	//Movement variables
 	public Rigidbody2D rigidBody;
@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour {
 	public float playerHealth;
 	public float maxHealth;
 
-	public GameObject swordHB;
 	public float swordDMG;
 	private bool attacking = false;
 	private bool animAttack;

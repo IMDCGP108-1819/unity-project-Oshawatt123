@@ -33,6 +33,7 @@ public class playerAttack : MonoBehaviour {
 				for (int i = 0; i < enemiesToDamage.Length; i++) {
 					enemiesToDamage [i].GetComponentInParent<Enemy_Basic> ().takeDamage (damage);
 					Debug.Log ("Trying :3");
+					Debug.Log (i);
 				}
 			}
 		}else{

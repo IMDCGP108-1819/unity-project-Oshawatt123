@@ -13,6 +13,7 @@ public class playerAttack : MonoBehaviour {
 	public Transform attackPos;
 	public float attackRangeX;
 	public float attackRangeY;
+	// mobLayer should be enemyHitBox (9)
 	public LayerMask mobLayer;
 
 	// Damage variables

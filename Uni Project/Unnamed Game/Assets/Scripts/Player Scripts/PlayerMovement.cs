@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour {
 	public float stamina;
 	public float maxStamina;
 
+	public Vector2Int roomID;
+
 	//Roll variables
 	public float rollStamina;
 	public float rollWait;
@@ -40,6 +42,11 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+
+		// Get RoomID of player
+		roomID = new Vector2Int ((Mathf.FloorToInt(this.transform.position.x) / 10) - 20, (Mathf.FloorToInt(this.transform.position.y) / 10) - 19);
+
+		// Animation control
 		animRolling = playerAnim.GetBool ("isRolling");
 
 		//Gets axis values for movement
@@ -50,9 +57,10 @@ public class PlayerMovement : MonoBehaviour {
 			transform.localScale = new Vector3 (Mathf.Round(Input.GetAxisRaw ("Horizontal")), 0f, 0f);
 		}*/
 
+		//apply movement as velocity (keeps collisions going with no acceleration)
 		Vector2 movement = new Vector2 (moveHor, moveVer);
 
-		rigidBody.velocity = movement * moveSpeed; //apply movement as velocity (keeps collisions going)
+		rigidBody.velocity = movement * moveSpeed;
 
 		//Roll
 		if (canRoll && !attacking && Input.GetAxisRaw ("Roll") == 1 && animRolling == false && stamina > 20 && rigidBody.velocity.magnitude > 0) { // fix co-routine

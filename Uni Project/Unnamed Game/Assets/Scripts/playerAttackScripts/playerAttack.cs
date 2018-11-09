@@ -29,6 +29,7 @@ public class playerAttack : MonoBehaviour {
 				playerAnim.SetBool ("isAttacking", true);
 				attackTime = attackStartTime;
 				notAlreadyAttacked = false;
+				Debug.Log ("Really trying");
 				Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll (attackPos.position, new Vector2 (attackRangeX, attackRangeY), 0, mobLayer);
 				for (int i = 0; i < enemiesToDamage.Length; i++) {
 					enemiesToDamage [i].GetComponentInParent<Enemy_Basic> ().takeDamage (damage);

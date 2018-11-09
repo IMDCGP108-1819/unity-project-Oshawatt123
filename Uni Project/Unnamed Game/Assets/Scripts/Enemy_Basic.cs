@@ -30,14 +30,15 @@ public class Enemy_Basic : MonoBehaviour {
 		playerPos = new Vector2 (player.transform.position.x, player.transform.position.y);
 		toPlayer = playerPos- new Vector2(this.transform.position.x, this.transform.position.y);
 
-		//move enemy towards player
-		// get unit vector
-		// move that far every frame
-
-		mag = Mathf.Sqrt (toPlayer.x * toPlayer.x + toPlayer.y * toPlayer.y);
-		toPlayerUnit = toPlayer / mag;
-
-		rigidBody.velocity = toPlayerUnit;
+		//Conditional movement
+		// stop moving once near enough to the player to attack, then attack!!!
+		// move only when seen the player (AND awake)
+		// asleep enemies will be woken on contact (movement by player collision)
+		if (Mathf.Abs(toPlayer.x) > 1.5 || Mathf.Abs(toPlayer.y) > 1.5) {
+			mag = Mathf.Sqrt (toPlayer.x * toPlayer.x + toPlayer.y * toPlayer.y);
+			toPlayerUnit = toPlayer / mag;
+			rigidBody.velocity = toPlayerUnit;
+		}
 
 		hitBoxTransform.localPosition = new Vector3 (0, 0, 0);
 		if (health <= 0) {

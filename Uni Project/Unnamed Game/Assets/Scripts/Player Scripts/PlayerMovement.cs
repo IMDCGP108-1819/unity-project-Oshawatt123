@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float rollMod;
 	public bool canRoll = true;
 	private bool animRolling;
+	private bool animAttacking;
 
 	//Animation variables
 	public Animator playerAnim;
@@ -47,6 +48,7 @@ public class PlayerMovement : MonoBehaviour {
 		roomID = new Vector2Int ((Mathf.FloorToInt(this.transform.position.x) / 10) - 20, (Mathf.FloorToInt(this.transform.position.y) / 10) - 19);
 
 		// Animation control
+		animAttacking = playerAnim.GetBool("isAttacking");
 		animRolling = playerAnim.GetBool ("isRolling");
 
 		//Gets axis values for movement
@@ -63,7 +65,7 @@ public class PlayerMovement : MonoBehaviour {
 		rigidBody.velocity = movement * moveSpeed;
 
 		//Roll
-		if (canRoll && !attacking && Input.GetAxisRaw ("Roll") == 1 && animRolling == false && stamina > 20 && rigidBody.velocity.magnitude > 0) { // fix co-routine
+		if (canRoll && !attacking && animAttacking == false && Input.GetAxisRaw ("Roll") == 1 && animRolling == false && stamina > 20 && rigidBody.velocity.magnitude > 0) { // fix co-routine
 			playerRoll();
 		}
 		//Add roll force

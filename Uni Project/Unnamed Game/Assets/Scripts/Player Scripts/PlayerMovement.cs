@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		StartCoroutine (RegenStats ());
 	}
 
 	void FixedUpdate(){
@@ -94,8 +95,10 @@ public class PlayerMovement : MonoBehaviour {
 	// STAT SCRIPTS
 
 	private IEnumerator RegenStats() {
-		yield return new WaitForSeconds (0.1f);
-		stamina = Mathf.Min (stamina + 5, maxStamina);
-		playerHealth = Mathf.Min (playerHealth + 2, maxHealth);
+		while (true) {
+			yield return new WaitForSeconds (0.1f);
+			stamina = Mathf.Min (stamina + 5, maxStamina);
+			playerHealth = Mathf.Min (playerHealth + 2, maxHealth);
+		}
 	}
 }

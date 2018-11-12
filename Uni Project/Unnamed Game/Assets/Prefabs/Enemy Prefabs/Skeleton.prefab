@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 4070164192297292}
   - component: {fileID: 212283104978152146}
   - component: {fileID: 61219333868500830}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SkeletonHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1136142009006298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4803152, y: -4.9087663, z: 0}
+  m_LocalPosition: {x: 201.51, y: 197.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4070164192297292}
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitBoxTransform: {fileID: 4070164192297292}
   rigidBody: {fileID: 50271640346242972}
-  health: 20
+  maxHealth: 10
   knockbackMod: 500
 --- !u!212 &212283104978152146
 SpriteRenderer:

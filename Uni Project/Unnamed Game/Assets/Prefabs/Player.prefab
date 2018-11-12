@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1274538308578798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.585909, y: -5.5571647, z: 0}
+  m_LocalPosition: {x: 202.51, y: 193.5, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4502467114215700}
@@ -129,7 +129,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2
+  orthographic size: 2.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -232,8 +232,8 @@ MonoBehaviour:
   attackRangeY: 0.5
   mobLayer:
     serializedVersion: 2
-    m_Bits: 256
-  damage: 11
+    m_Bits: 512
+  damage: 9
   playerAnim: {fileID: 95174632557447432}
 --- !u!114 &114586403205096688
 MonoBehaviour:
@@ -250,6 +250,7 @@ MonoBehaviour:
   moveSpeed: 1.5
   stamina: 100
   maxStamina: 100
+  roomID: {x: 0, y: 0}
   rollStamina: 15
   rollWait: 0
   rollMod: 0.75

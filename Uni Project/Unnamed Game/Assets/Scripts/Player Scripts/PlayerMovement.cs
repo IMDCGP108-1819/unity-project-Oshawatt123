@@ -37,10 +37,12 @@ public class PlayerMovement : MonoBehaviour {
 
 	//UI Variables
 	public Text staminaText;
+	public Text healthText;
 
 	// Use this for initialization
 	void Start () {
 		StartCoroutine (RegenStats ());
+		playerHealth = maxHealth;
 	}
 
 	void FixedUpdate(){
@@ -66,7 +68,7 @@ public class PlayerMovement : MonoBehaviour {
 		rigidBody.velocity = movement * moveSpeed;
 
 		//Roll
-		if (canRoll && !attacking && animAttacking == false && Input.GetAxisRaw ("Roll") == 1 && animRolling == false && stamina > 20 && rigidBody.velocity.magnitude > 0) { // fix co-routine
+		if (canRoll && !attacking && animAttacking == false && Input.GetAxisRaw ("Roll") == 1 && animRolling == false && stamina > rollStamina && rigidBody.velocity.magnitude > 0) { // fix co-routine
 			playerRoll();
 		}
 		//Add roll force
@@ -76,6 +78,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		//Set UI Text
 		staminaText.text = stamina.ToString();
+		healthText.text = playerHealth.ToString();
 
 	}
 
@@ -96,7 +99,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	private IEnumerator RegenStats() {
 		while (true) {
-			yield return new WaitForSeconds (0.1f);
+			yield return new WaitForSeconds (0.5f);
 			stamina = Mathf.Min (stamina + 5, maxStamina);
 			playerHealth = Mathf.Min (playerHealth + 2, maxHealth);
 		}

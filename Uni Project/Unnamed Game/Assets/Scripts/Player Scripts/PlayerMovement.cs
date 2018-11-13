@@ -104,6 +104,7 @@ public class PlayerMovement : MonoBehaviour {
 	// DAMAGE SCRIPTS
 
 	public void takeDamage(float damage){
+		Debug.Log ("Is this happening?");
 		playerHealth -= damage;
 	}
 

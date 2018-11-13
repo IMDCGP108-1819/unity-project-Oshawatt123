@@ -55,7 +55,7 @@ public class playerAttack : MonoBehaviour {
 					if (((1 << enemyLayer) & mobLayer) != 0){
 						Debug.Log ("Hitting enemy");
 						enemiesToDamage [i].GetComponentInParent<Enemy_Basic> ().takeDamage (damage);
-					} else if (mobLayer == playerLayer) {
+					} else if (((1 << playerLayer) & mobLayer) != 0) {
 						Debug.Log ("Try enemy");
 						enemiesToDamage [i].GetComponentInParent<PlayerMovement>().takeDamage (damage);
 					}

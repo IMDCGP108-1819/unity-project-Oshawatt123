@@ -86,4 +86,8 @@ public class Enemy_Basic : MonoBehaviour {
 		yield return new WaitForSeconds (0.5f);
 		dazed = false;
 	}
+
+	public void endAttackAnim(){
+		enemyAnim.SetBool("isAttacking", false);
+	}
 }

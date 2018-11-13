@@ -9,8 +9,8 @@ public class playerAttack : MonoBehaviour {
 
 	// Layer Variables
 	public LayerMask mobLayer;
-	public LayerMask playerLayer;
-	public LayerMask enemyLayer;
+	private LayerMask playerLayer;
+	private LayerMask enemyLayer;
 
 
 	// Timing Variables
@@ -29,13 +29,18 @@ public class playerAttack : MonoBehaviour {
 	public Animator playerAnim;
 
 	void Start(){
-		//playerLayer = LayerMask.NameToLayer ("playerHitBox");
-		//enemyLayer = LayerMask.NameToLayer ("enemyHitBox");
+		playerLayer = LayerMask.NameToLayer ("playerHitBox");
+		enemyLayer = LayerMask.NameToLayer ("enemyHitBox");
 	}
 
 	// Update is called once per frame
 	public void attack(float attackTime, GameObject attacker) {
 		if (attackTime <= 0) {
+			if (((1 << playerLayer) & mobLayer) != 0) {
+				Debug.Log ("Not 0");
+			}else if (((1 << playerLayer) & mobLayer) == 0){
+				Debug.Log("Is 0");
+			}
 			notAlreadyAttacked = true; // can be removed is NECESSARY but leaving as it works and don't feel like breaking this yet
 			if (notAlreadyAttacked == true) {
 				playerAnim.SetBool ("isAttacking", true);
@@ -45,13 +50,13 @@ public class playerAttack : MonoBehaviour {
 				notAlreadyAttacked = false;
 				Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll (attackPos.position, new Vector2 (attackRangeX, attackRangeY), 0, mobLayer);
 				for (int i = 0; i < enemiesToDamage.Length; i++) {
-					if (mobLayer == enemyLayer) {
+					/*f (mobLayer.value & 1<< enemyLayer) {
 						Debug.Log ("Try player");
 						enemiesToDamage [i].GetComponentInParent<Enemy_Basic> ().takeDamage (damage);
 					} else if (mobLayer == playerLayer) {
 						Debug.Log ("Try enemy");
 						enemiesToDamage [i].GetComponentInParent<PlayerMovement>().takeDamage (damage);
-					}
+					}*/
 				}
 			}
 		}

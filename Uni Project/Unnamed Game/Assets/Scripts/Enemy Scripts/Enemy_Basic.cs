@@ -8,11 +8,14 @@ public class Enemy_Basic : MonoBehaviour {
 	public Transform hitBoxTransform;
 	public Rigidbody2D rigidBody;
 
+	// Animation Variables
+	public Animator enemyAnim;
+
 	//Combat Variables
 	public float maxHealth;
 	private float health;
 	public float knockbackMod;
-
+	public float stopDistance;
 	private Vector2Int roomID;
 
 	// Movement Variables
@@ -33,12 +36,10 @@ public class Enemy_Basic : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		playerScript = player.GetComponent<PlayerMovement> ();
 		roomID = new Vector2Int ((Mathf.FloorToInt(this.transform.position.x) / 10) - 20, (Mathf.FloorToInt(this.transform.position.y) / 10) - 19);
-		Debug.Log (roomID);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (dazed);
 		if (awareOfPlayer && !dazed) {
 			playerPos = new Vector2 (player.transform.position.x, player.transform.position.y);
 			toPlayer = playerPos - new Vector2 (this.transform.position.x, this.transform.position.y);

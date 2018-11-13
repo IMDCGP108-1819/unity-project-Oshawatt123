@@ -30,10 +30,11 @@ public class PlayerMovement : MonoBehaviour {
 	public Animator playerAnim;
 
 	//Combat variables
+	public playerAttack attackScript;
 	public float playerHealth;
 	public float maxHealth;
-
 	private bool attacking = false;
+	public float attackTime;
 
 	//UI Variables
 	public Text staminaText;
@@ -46,7 +47,6 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-
 		// Get RoomID of player
 		roomID = new Vector2Int ((Mathf.FloorToInt(this.transform.position.x) / 10) - 20, (Mathf.FloorToInt(this.transform.position.y) / 10) - 19);
 
@@ -67,6 +67,11 @@ public class PlayerMovement : MonoBehaviour {
 
 		rigidBody.velocity = movement * moveSpeed;
 
+		//Attack
+		if (Input.GetAxisRaw ("Attack") == 1) {
+			attackScript.attack (attackTime, this.gameObject);
+		}
+
 		//Roll
 		if (canRoll && !attacking && animAttacking == false && Input.GetAxisRaw ("Roll") == 1 && animRolling == false && stamina > rollStamina && rigidBody.velocity.magnitude > 0) { // fix co-routine
 			playerRoll();
@@ -80,6 +85,7 @@ public class PlayerMovement : MonoBehaviour {
 		staminaText.text = stamina.ToString();
 		healthText.text = playerHealth.ToString();
 
+		attackTime -= Time.deltaTime;
 	}
 
 	// ROLL SCRIPTS
@@ -93,6 +99,12 @@ public class PlayerMovement : MonoBehaviour {
 	private IEnumerator EndRoll() {
 		yield return new WaitForSeconds (0.2f);
 		canRoll = true;
+	}
+
+	// DAMAGE SCRIPTS
+
+	public void takeDamage(float damage){
+		playerHealth -= damage;
 	}
 
 	// STAT SCRIPTS

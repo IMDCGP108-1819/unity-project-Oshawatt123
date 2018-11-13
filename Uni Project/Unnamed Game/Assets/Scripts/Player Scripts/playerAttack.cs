@@ -44,8 +44,10 @@ public class playerAttack : MonoBehaviour {
 			notAlreadyAttacked = true; // can be removed is NECESSARY but leaving as it works and don't feel like breaking this yet
 			if (notAlreadyAttacked == true) {
 				playerAnim.SetBool ("isAttacking", true);
-				if (attacker.CompareTag("Player")){
-					attacker.GetComponent<PlayerMovement>().attackTime = attackStartTime;
+				if (attacker.CompareTag ("Player")) {
+					attacker.GetComponent<PlayerMovement> ().attackTime = attackStartTime;
+				} else if (attacker.CompareTag ("Enemy")) {
+					attacker.GetComponent<Enemy_Basic> ().attackTime = attackStartTime;
 				}
 				notAlreadyAttacked = false;
 				Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll (attackPos.position, new Vector2 (attackRangeX, attackRangeY), 0, mobLayer);

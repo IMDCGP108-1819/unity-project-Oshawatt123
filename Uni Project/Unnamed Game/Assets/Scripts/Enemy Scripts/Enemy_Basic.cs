@@ -17,6 +17,9 @@ public class Enemy_Basic : MonoBehaviour {
 	public float knockbackMod;
 	public float stopDistance;
 	private Vector2Int roomID;
+	public float attackTime;
+
+	public playerAttack attackScript;
 
 	// Movement Variables
 	private GameObject player;
@@ -51,8 +54,10 @@ public class Enemy_Basic : MonoBehaviour {
 			toPlayerUnit = toPlayer / mag;
 			if (health <= (maxHealth / 10)) {
 				rigidBody.velocity = -toPlayerUnit;
-			}else if (Mathf.Abs(toPlayer.x) > 1.5 || Mathf.Abs(toPlayer.y) > 1.5) {
+			} else if (Mathf.Abs (toPlayer.x) > stopDistance || Mathf.Abs (toPlayer.y) > stopDistance) {
 				rigidBody.velocity = toPlayerUnit;
+			} else {
+				attackScript.attack(attackTime, this.gameObject);
 			}
 
 			hitBoxTransform.localPosition = new Vector3 (0, 0, 0);
@@ -66,6 +71,8 @@ public class Enemy_Basic : MonoBehaviour {
 			Debug.Log ("Ded m8");
 			Destroy (this.gameObject);
 		}
+
+		attackTime -= Time.deltaTime;
 	}
 
 	public void takeDamage(float damage){

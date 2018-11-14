@@ -52,12 +52,12 @@ public class playerAttack : MonoBehaviour {
 				notAlreadyAttacked = false;
 				Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll (attackPos.position, new Vector2 (attackRangeX, attackRangeY), 0, mobLayer);
 				for (int i = 0; i < enemiesToDamage.Length; i++) {
-					Debug.Log ((1 << playerLayer) & mobLayer);
+					//Debug.Log ((1 << playerLayer) & mobLayer);
 					if (((1 << enemyLayer) & mobLayer) != 0){
-						Debug.Log ("Hitting enemy");
+						//Debug.Log ("Hitting enemy");
 						enemiesToDamage [i].GetComponentInParent<Enemy_Basic> ().takeDamage (damage);
 					} else if (((1 << playerLayer) & mobLayer) != 0) {
-						Debug.Log ("Try enemy");
+						//Debug.Log ("Try enemy");
 						enemiesToDamage [i].GetComponentInParent<PlayerMovement>().takeDamage (damage);
 					}
 				}

@@ -155,6 +155,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f40f13fe4548894aab49fec9efa44c7, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &614913550 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114489479267347604, guid: 2247984bf6a65c44ba88be111dd05d83,
+    type: 2}
+  m_PrefabInternal: {fileID: 725545582}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &725545582
 Prefab:
   m_ObjectHideFlags: 0
@@ -283,12 +289,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1039307142 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114489479267347604, guid: 2247984bf6a65c44ba88be111dd05d83,
-    type: 2}
-  m_PrefabInternal: {fileID: 725545582}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1109579819
 Prefab:
   m_ObjectHideFlags: 0
@@ -374,16 +374,16 @@ Prefab:
         type: 2}
       propertyPath: staminaText
       value: 
-      objectReference: {fileID: 1538021274}
+      objectReference: {fileID: 1827047985}
     - target: {fileID: 114586403205096688, guid: aecc4d959048f9b4fbabb7bbd6053cfc,
         type: 2}
       propertyPath: healthText
       value: 
-      objectReference: {fileID: 1039307142}
+      objectReference: {fileID: 614913550}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aecc4d959048f9b4fbabb7bbd6053cfc, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &1538021274 stripped
+--- !u!114 &1827047985 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114654100676292342, guid: 2247984bf6a65c44ba88be111dd05d83,
     type: 2}

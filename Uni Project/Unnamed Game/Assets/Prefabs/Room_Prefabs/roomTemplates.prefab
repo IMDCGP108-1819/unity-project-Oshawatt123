@@ -73,5 +73,6 @@ MonoBehaviour:
   - {fileID: 1183749976652594, guid: cb9b9f13ede712146b1397c03ca06e0a, type: 2}
   closedRoom: {fileID: 1609879233620762, guid: 36cfbcf90d3aaf4489dc92626bfef6aa, type: 2}
   rooms: []
-  waitTime: 5
+  waitTime: -3.8115773
+  spawnedBoss: 1
   boss: {fileID: 1136142009006298, guid: 3f40f13fe4548894aab49fec9efa44c7, type: 2}

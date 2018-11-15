@@ -9,7 +9,7 @@ public class roomTemplates : MonoBehaviour {
 	public GameObject[] topRooms;
 	public GameObject[] leftRooms;
 	public GameObject[] rightRooms;
-	public GameObject[] puzzlesBoiii;
+	public GameObject[] puzzleRooms;
 
 	public GameObject closedRoom;
 
@@ -24,41 +24,64 @@ public class roomTemplates : MonoBehaviour {
 	private GameObject puzzleRoom;
 	public bool puzzleSpawned = false;
 	public bool helpSpawned;
-	private string[] puzzleDoors;
+	private int[] puzzleDoors = {0,0,0,0};
+	private int numOfDoors;
 
 	void Start(){
 		Destroyer = GameObject.FindGameObjectWithTag ("Entry").GetComponentInChildren<destroyer> ();
 		// hardcoding values for the only puzzle room. will be a switch once more exist
 		helpSpawned = false;
-		puzzleDoors [0] = "T";
-		puzzleDoors [1] = "B";
+		puzzleDoors [0] = 1;
+		puzzleDoors [1] = 2;
+		puzzleDoors [2] = 0;
+		puzzleDoors [3] = 0;
+		numOfDoors = 2;
 	}
 
 	void Update(){
 		if (waitTime <= 0 && !spawnedBoss) {
-			spawnedBoss = true;
-			Destroyer.destroyself();
-			Instantiate (boss, rooms[rooms.Count-1].transform.position, Quaternion.identity);
 			if (rooms.Count >= 8) {
 				spawnPuzzle ();
 			}
+			spawnedBoss = true;
+			Destroyer.destroyself();
+			Instantiate (boss, rooms[rooms.Count-1].transform.position, Quaternion.identity);
 		} else {
 			waitTime -= Time.deltaTime;
 		}
 	}
 
 	void spawnPuzzle(){
+		Debug.Log (puzzleDoors [0]);
 		bool canSpawnPuzzle = true;
-		puzzleRoom = rooms[Random.Range (5, rooms.Count - 2)];
-		foreach (Transform child in puzzleRoom.transform){
-			Debug.Log (child.CompareTag ("spawnPoint"));
-			if (child.CompareTag("spawnPoint")){
-				int openingDir = child.GetComponent<roomSpawner> ().openingDirection;
-				if (openingDir == 3 || openingDir == 4){
-					canSpawnPuzzle = false;
+		bool puzzleFound = false;
+		int numOfCorrectDoors = 0;
+		for (int i = rooms.Count-2; i > 3; i--) {
+			if (!puzzleFound) {
+				puzzleRoom = rooms [i];
+			}
+			Debug.Log (puzzleRoom);
+			foreach (Transform child in puzzleRoom.transform) {
+				if (child.CompareTag ("spawnPoint") && !puzzleFound) {
+					int openingDir = child.GetComponent<roomSpawner> ().openingDirection;
+					Debug.Log (openingDir);
+					if (openingDir == puzzleDoors [0] || openingDir == puzzleDoors [1] || openingDir == puzzleDoors [2] || openingDir == puzzleDoors [3]) {
+						numOfCorrectDoors += 1;
+					} else {
+						canSpawnPuzzle = false;
+						numOfCorrectDoors = 0;
+					}
+				}
+				if (numOfCorrectDoors == numOfDoors) {
+					puzzleFound = true;
+					canSpawnPuzzle = true;
 				}
 			}
 		}
-		Debug.Log (canSpawnPuzzle + " " + puzzleRoom.name);
+		if (numOfCorrectDoors == 2 && canSpawnPuzzle) {
+			Instantiate (puzzleRooms [0], puzzleRoom.transform.position, Quaternion.identity);
+			Destroy (puzzleRoom);
+		}
+		Debug.Log (canSpawnPuzzle + " " + puzzleRoom.name + " " + numOfCorrectDoors);
 	}
 }

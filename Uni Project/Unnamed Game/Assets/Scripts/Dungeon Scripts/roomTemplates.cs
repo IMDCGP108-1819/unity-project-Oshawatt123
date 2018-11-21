@@ -22,10 +22,12 @@ public class roomTemplates : MonoBehaviour {
 	private destroyer Destroyer;
 
 	private GameObject puzzleRoom;
+	public GameObject puzzleHelpObject;
 	public bool puzzleSpawned = false;
 	public bool helpSpawned;
 	private int[] puzzleDoors = {0,0,0,0};
 	private int numOfDoors;
+	private int puzzleRoomIndex;
 
 	void Start(){
 		Destroyer = GameObject.FindGameObjectWithTag ("Entry").GetComponentInChildren<destroyer> ();
@@ -59,6 +61,7 @@ public class roomTemplates : MonoBehaviour {
 		for (int i = rooms.Count-2; i > 3; i--) {
 			if (!puzzleFound) {
 				puzzleRoom = rooms [i];
+				puzzleRoomIndex = i;
 			}
 			Debug.Log (puzzleRoom);
 			foreach (Transform child in puzzleRoom.transform) {
@@ -79,6 +82,7 @@ public class roomTemplates : MonoBehaviour {
 			}
 		}
 		if (numOfCorrectDoors == 2 && canSpawnPuzzle) {
+			Instantiate(puzzleHelpObject, rooms[Random.Range(0, puzzleRoomIndex-1)].transform.position, Quaternion.identity);
 			Instantiate (puzzleRooms [0], puzzleRoom.transform.position, Quaternion.identity);
 			Destroy (puzzleRoom);
 		}

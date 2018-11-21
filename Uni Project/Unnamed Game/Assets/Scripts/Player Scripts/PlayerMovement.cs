@@ -113,8 +113,8 @@ public class PlayerMovement : MonoBehaviour {
 	private IEnumerator RegenStats() {
 		while (true) {
 			yield return new WaitForSeconds (0.5f);
-			stamina = Mathf.Min (stamina + 5, maxStamina);
-			playerHealth = Mathf.Min (playerHealth + 2, maxHealth);
+			stamina = Mathf.Min (stamina + 2, maxStamina);
+			playerHealth = Mathf.Min (playerHealth + 1, maxHealth);
 		}
 	}
 }

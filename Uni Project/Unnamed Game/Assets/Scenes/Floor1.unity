@@ -440,6 +440,12 @@ Prefab:
       value: 
       objectReference: {fileID: 1199151321644400, guid: 2c3abf6f351b97b468f16f2e86dfd67b,
         type: 2}
+    - target: {fileID: 114338446750991016, guid: 1445d99569fcec5419629279701e1bc5,
+        type: 2}
+      propertyPath: puzzleHelpObject
+      value: 
+      objectReference: {fileID: 1712540557249084, guid: 962f2406434d6b44fb324c094ba196b5,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1445d99569fcec5419629279701e1bc5, type: 2}
   m_IsPrefabAsset: 0

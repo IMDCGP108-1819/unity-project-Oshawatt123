@@ -24,7 +24,7 @@ public class paperInteract : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.E)) {
+		if (Input.GetKeyDown(KeyCode.E)) {
 			Collider2D[] nearbyObjects = Physics2D.OverlapBoxAll (pos, detectSize, 0, playerLayer);
 			Debug.Log(nearbyObjects);
 		}

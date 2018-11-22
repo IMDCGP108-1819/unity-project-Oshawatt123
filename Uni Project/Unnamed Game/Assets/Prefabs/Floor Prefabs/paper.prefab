@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4511374238685072}
   - component: {fileID: 212155615462090516}
+  - component: {fileID: 114781922811843564}
   m_Layer: 0
   m_Name: paper
   m_TagString: Untagged
@@ -34,12 +35,31 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1712540557249084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 206.42877, y: 195.03535, z: -0.1}
+  m_LocalPosition: {x: 206.42877, y: 195.03535, z: -0.228}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114781922811843564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1712540557249084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06e8b52b86f68344a20133502ca32f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gizmoMarker: {fileID: 1712540557249084}
+  canvas: {fileID: 0}
+  paperUI: {fileID: 1290563981693678, guid: 89f60e4afa510f943904469032f65f1c, type: 2}
+  xDetect: 0.8
+  yDetect: 0.8
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!212 &212155615462090516
 SpriteRenderer:
   m_ObjectHideFlags: 1

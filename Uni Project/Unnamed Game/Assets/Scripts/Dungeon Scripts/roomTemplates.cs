@@ -35,8 +35,8 @@ public class roomTemplates : MonoBehaviour {
 		helpSpawned = false;
 		puzzleDoors [0] = 1;
 		puzzleDoors [1] = 2;
-		puzzleDoors [2] = 0;
-		puzzleDoors [3] = 0;
+		puzzleDoors [2] = 66;
+		puzzleDoors [3] = 66;
 		numOfDoors = 2;
 	}
 
@@ -55,7 +55,6 @@ public class roomTemplates : MonoBehaviour {
 
 	void spawnPuzzle(){
 		Debug.Log (puzzleDoors [0]);
-		bool canSpawnPuzzle = true;
 		bool puzzleFound = false;
 		int numOfCorrectDoors = 0;
 		for (int i = rooms.Count-2; i > 3; i--) {
@@ -70,22 +69,19 @@ public class roomTemplates : MonoBehaviour {
 					Debug.Log (openingDir);
 					if (openingDir == puzzleDoors [0] || openingDir == puzzleDoors [1] || openingDir == puzzleDoors [2] || openingDir == puzzleDoors [3]) {
 						numOfCorrectDoors += 1;
-					} else {
-						canSpawnPuzzle = false;
-						numOfCorrectDoors = 0;
 					}
 				}
 				if (numOfCorrectDoors == numOfDoors) {
 					puzzleFound = true;
-					canSpawnPuzzle = true;
 				}
 			}
+			numOfCorrectDoors = 0;
 		}
-		if (numOfCorrectDoors == 2 && canSpawnPuzzle) {
+		if (puzzleFound) {
 			Instantiate(puzzleHelpObject, rooms[Random.Range(0, puzzleRoomIndex-1)].transform.position, Quaternion.identity);
 			Instantiate (puzzleRooms [0], puzzleRoom.transform.position, Quaternion.identity);
 			Destroy (puzzleRoom);
 		}
-		Debug.Log (canSpawnPuzzle + " " + puzzleRoom.name + " " + numOfCorrectDoors);
+		Debug.Log ("Room: " + puzzleRoom.name);
 	}
 }

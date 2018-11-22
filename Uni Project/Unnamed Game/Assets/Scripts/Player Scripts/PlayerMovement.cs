@@ -10,11 +10,13 @@ public class PlayerMovement : MonoBehaviour {
 
 	//Movement variables
 	public Rigidbody2D rigidBody;
+	private Vector2 movement = new Vector2 (0f, 0f);
 	private float moveHor;
 	private float moveVer;
 	public float moveSpeed;
 	public float stamina;
 	public float maxStamina;
+	private bool canMove = true;
 
 	public Vector2Int roomID;
 
@@ -36,12 +38,18 @@ public class PlayerMovement : MonoBehaviour {
 	private bool attacking = false;
 	public float attackTime;
 
+	public float spawnX;
+	public float spawnY;
+
 	//UI Variables
 	public Text staminaText;
 	public Text healthText;
+	public Image deathFadeScreen;
 
 	// Use this for initialization
 	void Start () {
+		deathFadeScreen.gameObject.SetActive (true);
+		deathFadeScreen.CrossFadeAlpha (0f, 0f, true);
 		StartCoroutine (RegenStats ());
 		playerHealth = maxHealth;
 	}
@@ -63,7 +71,9 @@ public class PlayerMovement : MonoBehaviour {
 		}*/
 
 		//apply movement as velocity (keeps collisions going with no acceleration)
-		Vector2 movement = new Vector2 (moveHor, moveVer);
+		if (canMove) {
+			movement = new Vector2 (moveHor, moveVer);
+		}
 
 		rigidBody.velocity = movement * moveSpeed;
 
@@ -106,6 +116,20 @@ public class PlayerMovement : MonoBehaviour {
 	public void takeDamage(float damage){
 		Debug.Log ("Is this happening?");
 		playerHealth -= damage;
+	}
+
+	public void die(){
+		StartCoroutine (death ());
+	}
+
+	private IEnumerator death(){
+		movement = new Vector2 (0f, 0f);
+		canMove = false;
+		deathFadeScreen.CrossFadeAlpha (1f, 2f, true);
+		yield return new WaitForSeconds (2f);
+		this.transform.position = new Vector3 (spawnX, spawnY, 0f);
+		deathFadeScreen.CrossFadeAlpha (0f, 2f, true);
+		canMove = true;
 	}
 
 	// STAT SCRIPTS

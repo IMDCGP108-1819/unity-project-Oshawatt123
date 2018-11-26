@@ -52,30 +52,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bottomRooms:
-  - {fileID: 1984143454337090, guid: 3ec44a22200873647a298b2809a3674e, type: 2}
-  - {fileID: 1614418554937204, guid: 75a9dfd22b2d304458e7b20db37ec953, type: 2}
-  - {fileID: 1506714574262070, guid: e9c50bb7afde93b49a2c9723eaf3d32a, type: 2}
-  - {fileID: 1145387494798126, guid: 5e4738780587ce84fa4c98646d04d1ce, type: 2}
+  - {fileID: 1202477032392136, guid: 3ec44a22200873647a298b2809a3674e, type: 2}
+  - {fileID: 1329351073855574, guid: 75a9dfd22b2d304458e7b20db37ec953, type: 2}
+  - {fileID: 1386142407821078, guid: e9c50bb7afde93b49a2c9723eaf3d32a, type: 2}
+  - {fileID: 1697257115487812, guid: 5e4738780587ce84fa4c98646d04d1ce, type: 2}
+  - {fileID: 1130123671422156, guid: 6fa067152db3816418e471e2fd858812, type: 2}
+  - {fileID: 1993917237063778, guid: 07b5afe470ac0d44c8aac527a3fcfb12, type: 2}
+  - {fileID: 1302174882001860, guid: 7ddb4103a3777b944b305190cb794a1f, type: 2}
   topRooms:
-  - {fileID: 1721505222058148, guid: 0fb160df25c771644a638bc67eef9754, type: 2}
-  - {fileID: 1679216461939596, guid: 3a04de091aa5f0f41a796e7fb5dc2c2f, type: 2}
-  - {fileID: 1183749976652594, guid: cb9b9f13ede712146b1397c03ca06e0a, type: 2}
-  - {fileID: 1145387494798126, guid: 5e4738780587ce84fa4c98646d04d1ce, type: 2}
+  - {fileID: 1236720115647396, guid: 0fb160df25c771644a638bc67eef9754, type: 2}
+  - {fileID: 1697257115487812, guid: 5e4738780587ce84fa4c98646d04d1ce, type: 2}
+  - {fileID: 1143441010794342, guid: 3a04de091aa5f0f41a796e7fb5dc2c2f, type: 2}
+  - {fileID: 1997883680896410, guid: cb9b9f13ede712146b1397c03ca06e0a, type: 2}
+  - {fileID: 1993917237063778, guid: 07b5afe470ac0d44c8aac527a3fcfb12, type: 2}
   leftRooms:
-  - {fileID: 1200797410177754, guid: b342e9a9fe3f9c340a5578abc933bbc8, type: 2}
-  - {fileID: 1984143454337090, guid: 3ec44a22200873647a298b2809a3674e, type: 2}
-  - {fileID: 1679216461939596, guid: 3a04de091aa5f0f41a796e7fb5dc2c2f, type: 2}
-  - {fileID: 1981952854473784, guid: a1672aa0896ac074cbe79afd85ec8973, type: 2}
+  - {fileID: 1667950736193262, guid: b342e9a9fe3f9c340a5578abc933bbc8, type: 2}
+  - {fileID: 1202477032392136, guid: 3ec44a22200873647a298b2809a3674e, type: 2}
+  - {fileID: 1099342125365394, guid: a1672aa0896ac074cbe79afd85ec8973, type: 2}
+  - {fileID: 1143441010794342, guid: 3a04de091aa5f0f41a796e7fb5dc2c2f, type: 2}
+  - {fileID: 1707416422524208, guid: aa0ec5a4e76485a4396dbb325be786b1, type: 2}
+  - {fileID: 1044680174998760, guid: 344cfc57e73ba30448af3aa02c398b29, type: 2}
+  - {fileID: 1775146724269838, guid: 813a51bcf13dc39429e03c57e62bdaf4, type: 2}
   rightRooms:
-  - {fileID: 1981952854473784, guid: a1672aa0896ac074cbe79afd85ec8973, type: 2}
-  - {fileID: 1755430072482092, guid: 3016edb202055dc4cb7e1d18e914f184, type: 2}
-  - {fileID: 1614418554937204, guid: 75a9dfd22b2d304458e7b20db37ec953, type: 2}
-  - {fileID: 1183749976652594, guid: cb9b9f13ede712146b1397c03ca06e0a, type: 2}
-  puzzlesBoiii: []
+  - {fileID: 1099342125365394, guid: a1672aa0896ac074cbe79afd85ec8973, type: 2}
+  - {fileID: 1606903820445920, guid: 3016edb202055dc4cb7e1d18e914f184, type: 2}
+  - {fileID: 1329351073855574, guid: 75a9dfd22b2d304458e7b20db37ec953, type: 2}
+  - {fileID: 1997883680896410, guid: cb9b9f13ede712146b1397c03ca06e0a, type: 2}
+  - {fileID: 1039750949527962, guid: 9cb55e7bc58c1c542b2685658f130327, type: 2}
+  - {fileID: 1775146724269838, guid: 813a51bcf13dc39429e03c57e62bdaf4, type: 2}
+  puzzleRooms:
+  - {fileID: 1199151321644400, guid: 2c3abf6f351b97b468f16f2e86dfd67b, type: 2}
   closedRoom: {fileID: 1609879233620762, guid: 36cfbcf90d3aaf4489dc92626bfef6aa, type: 2}
   rooms: []
   waitTime: 3
   spawnedBoss: 0
   boss: {fileID: 1136142009006298, guid: 3f40f13fe4548894aab49fec9efa44c7, type: 2}
+  puzzleHelpObject: {fileID: 1712540557249084, guid: 962f2406434d6b44fb324c094ba196b5,
+    type: 2}
   puzzleSpawned: 0
   helpSpawned: 0

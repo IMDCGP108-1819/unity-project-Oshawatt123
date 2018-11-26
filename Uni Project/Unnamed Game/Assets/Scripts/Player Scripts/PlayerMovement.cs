@@ -98,6 +98,16 @@ public class PlayerMovement : MonoBehaviour {
 		attackTime -= Time.deltaTime;
 	}
 
+	/*void LateUpdate(){
+		float absValue = Mathf.Abs (rigidBody.velocity);
+		if (absValue > 0) {
+			this.transform.localScale.x = 1;
+		} else if (absValue < 0) {
+			this.transform.localScale.x = -1;
+		}
+
+	}*/
+
 	// ROLL SCRIPTS
 
 	private void playerRoll(){
@@ -138,7 +148,7 @@ public class PlayerMovement : MonoBehaviour {
 		while (true) {
 			yield return new WaitForSeconds (0.5f);
 			stamina = Mathf.Min (stamina + 2, maxStamina);
-			playerHealth = Mathf.Min (playerHealth + 1, maxHealth);
+			//playerHealth = Mathf.Min (playerHealth + 1, maxHealth);
 		}
 	}
 }

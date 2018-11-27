@@ -206,6 +206,7 @@ MonoBehaviour:
   hitBoxTransform: {fileID: 4070164192297292}
   rigidBody: {fileID: 50271640346242972}
   enemyAnim: {fileID: 95087308185055500}
+  blood: {fileID: 1148592027160072, guid: 9605b8017977c904e974087091a844c3, type: 2}
   maxHealth: 10
   knockbackMod: 500
   stopDistance: 0.5

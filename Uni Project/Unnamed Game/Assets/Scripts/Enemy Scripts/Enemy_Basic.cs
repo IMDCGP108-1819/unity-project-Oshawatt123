@@ -11,6 +11,8 @@ public class Enemy_Basic : MonoBehaviour {
 	// Animation Variables
 	public Animator enemyAnim;
 
+	public GameObject blood;
+
 	//Combat Variables
 	public float maxHealth;
 	private float health;
@@ -76,6 +78,7 @@ public class Enemy_Basic : MonoBehaviour {
 	}
 
 	public void takeDamage(float damage){
+		Instantiate (blood, new Vector3(this.transform.position.x, this.transform.position.y, -3f), Quaternion.identity);
 		dazed = true;
 		rigidBody.AddForce (-toPlayer * knockbackMod, ForceMode2D.Impulse);
 		health -= damage;

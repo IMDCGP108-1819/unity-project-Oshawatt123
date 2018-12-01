@@ -20,6 +20,8 @@ public class chestInteract : MonoBehaviour {
 
 	private bool lootSpawned = false;
 
+	public spawnLoot spawnScript;
+
 	// Use this for initialization
 	void Start () {
 		detectSize = new Vector2 (xDetect, yDetect);
@@ -48,6 +50,8 @@ public class chestInteract : MonoBehaviour {
 		if (!lootSpawned) {
 			Debug.Log ("Spawning Loot");
 			lootSpawned = true;
+			spawnScript.lootSpawn (2);
+
 		}
 		// shower coins everywhere
 		// create coins

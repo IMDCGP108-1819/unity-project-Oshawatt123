@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class chestInteract : MonoBehaviour {
 
-	private Collider2D[] nearbyObjects;
+	private Collider2D[] nearbyObjects_Chest;
 
 	private Vector2 pos;
 
@@ -27,9 +27,10 @@ public class chestInteract : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.E)) {
-			Collider2D[] nearbyObjects = Physics2D.OverlapBoxAll (pos, detectSize, 0);
-			Debug.Log (nearbyObjects.Length);
-			if(nearbyObjects.Length > 0){
+			Collider2D[] nearbyObjects_Chest = Physics2D.OverlapBoxAll (pos, detectSize, 0, playerLayer);
+			Debug.Log (nearbyObjects_Chest.Length);
+			if(nearbyObjects_Chest.Length > 0){
+				Debug.Log ("Opening chest");
 				chestAnim.SetTrigger ("openChest");
 				//set trigger on chest animation
 			}

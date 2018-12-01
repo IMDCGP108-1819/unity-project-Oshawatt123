@@ -18,6 +18,8 @@ public class chestInteract : MonoBehaviour {
 
 	public Animator chestAnim;
 
+	private bool lootSpawned = false;
+
 	// Use this for initialization
 	void Start () {
 		detectSize = new Vector2 (xDetect, yDetect);
@@ -43,10 +45,13 @@ public class chestInteract : MonoBehaviour {
 	}
 
 	public void spawnLoot(){
-		Debug.Log ("Spawning Loot");
+		if (!lootSpawned) {
+			Debug.Log ("Spawning Loot");
+			lootSpawned = true;
+		}
 		// shower coins everywhere
 		// create coins
 		// 
-		// create particle system for it
+		// create own "particle system" for it
 	}
 }

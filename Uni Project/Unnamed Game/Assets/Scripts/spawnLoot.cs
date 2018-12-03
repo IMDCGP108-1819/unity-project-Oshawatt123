@@ -7,6 +7,12 @@ public class spawnLoot : MonoBehaviour {
 	public GameObject coin;
 	public GameObject essence;
 
+	public float minXForce;
+	public float maxXForce;
+
+	public float minYForce;
+	public float maxYForce;
+
 	//private GameObject tempObject;
 
 	private List<GameObject> spawnedObjects = new List<GameObject>();
@@ -16,6 +22,8 @@ public class spawnLoot : MonoBehaviour {
 			Debug.Log ("round");
 			for (int j = 0; j< Random.Range(0, 4); j++) {
 				GameObject tempObject = Instantiate (coin) as GameObject;
+				Vector2 tempForce = new Vector2(Random.Range(minXForce, maxXForce), Random.Range(minYForce, maxYForce));
+				tempObject.GetComponent<Rigidbody2D> ().AddForce (tempForce, ForceMode2D.Impulse);
 				spawnedObjects.Add(tempObject);
 				Debug.Log ("added coin");
 			}

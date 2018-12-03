@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour {
 
-	//Exposed gameObjects
-	//public GameObject enemy;
+	//Player Coinage
+	private float coins;
+	private float essences;
 
 	//Movement variables
 	public Rigidbody2D rigidBody;
@@ -150,5 +151,17 @@ public class PlayerMovement : MonoBehaviour {
 			stamina = Mathf.Min (stamina + 2, maxStamina);
 			//playerHealth = Mathf.Min (playerHealth + 1, maxHealth);
 		}
+	}
+
+	//Coinage Scripts
+
+	public void addCoin(){
+		coins += 1;
+		Debug.Log ("added coin");
+	}
+
+	public void addEssence(){
+		essences += 1;
+		Debug.Log ("added essence");
 	}
 }

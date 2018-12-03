@@ -23,7 +23,7 @@ TagManager:
   - enemyHitBox
   - playerHitBox
   - coinFloor
-  - 
+  - pickupLayer
   - 
   - 
   - 

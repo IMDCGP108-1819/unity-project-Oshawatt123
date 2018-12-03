@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class destrotyEssence : MonoBehaviour {
 
-	void OnTriggerEnter2D(Collider2D other){
+	void OnCollisionEnter2D(Collision2D other){
 		Debug.Log ("fwrgwfqad");
-		if (other.CompareTag ("Player")) {
+		if (other.gameObject.CompareTag ("Player")) {
 			Debug.Log ("Touchy Essence");
-			other.GetComponent<PlayerMovement> ().addEssence ();
+			other.gameObject.GetComponent<PlayerMovement> ().addEssence ();
 			Destroy (this.gameObject);
 		}
 	}

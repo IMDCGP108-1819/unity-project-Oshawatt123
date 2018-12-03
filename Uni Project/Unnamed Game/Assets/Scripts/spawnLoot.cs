@@ -21,7 +21,7 @@ public class spawnLoot : MonoBehaviour {
 		for (int i = 0; i < Severity; i++) {
 			Debug.Log ("round");
 			for (int j = 0; j< Random.Range(0, 4); j++) {
-				GameObject tempObject = Instantiate (coin) as GameObject;
+				GameObject tempObject = Instantiate (coin, this.transform.position, Quaternion.identity) as GameObject;
 				Vector2 tempForce = new Vector2(Random.Range(minXForce, maxXForce), Random.Range(minYForce, maxYForce));
 				tempObject.GetComponent<Rigidbody2D> ().AddForce (tempForce, ForceMode2D.Impulse);
 				spawnedObjects.Add(tempObject);
@@ -29,6 +29,8 @@ public class spawnLoot : MonoBehaviour {
 			}
 			for (int j = 0; j< Random.Range(0, 4); j++) {
 				GameObject tempObject = Instantiate (essence, this.transform.position, Quaternion.identity) as GameObject;
+				Vector2 tempForce = new Vector2(Random.Range(minXForce, maxXForce), Random.Range(minYForce, maxYForce));
+				tempObject.GetComponent<Rigidbody2D> ().AddForce (tempForce, ForceMode2D.Impulse);
 				spawnedObjects.Add(tempObject);
 				Debug.Log ("Added essence");
 			}

@@ -17,7 +17,9 @@ public class roomTemplates : MonoBehaviour {
 
 	public float waitTime;
 	public bool spawnedBoss;
+	private bool killedBoos;
 	public GameObject boss;
+	public GameObject cage;
 
 	private destroyer Destroyer;
 
@@ -45,9 +47,17 @@ public class roomTemplates : MonoBehaviour {
 			if (rooms.Count >= 8) {
 				spawnPuzzle ();
 			}
+
+
+			// SWITCH THE BOSS SPAWNY THING TO ONE MORE LIKE THE PUZZLE AND HAVE SOME PRE-SET BOSS ROOMS
+			// WORKS BETTER AND MORE FUN FOR THE PLAYER
+
+
 			spawnedBoss = true;
 			Destroyer.destroyself();
 			Instantiate (boss, rooms[rooms.Count-1].transform.position, Quaternion.identity);
+			Vector3 cagePos = new Vector3 (rooms [rooms.Count - 1].transform.position.x - 1, rooms [rooms.Count - 1].transform.position.y - 1, -1);
+			Instantiate (cage,cagePos, Quaternion.identity);
 		} else {
 			waitTime -= Time.deltaTime;
 		}

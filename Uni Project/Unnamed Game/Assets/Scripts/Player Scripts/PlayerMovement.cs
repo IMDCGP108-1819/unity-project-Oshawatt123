@@ -42,6 +42,9 @@ public class PlayerMovement : MonoBehaviour {
 	public float spawnX;
 	public float spawnY;
 
+	//Player Squadage
+	private GameObject[] squad;
+
 	//UI Variables
 	public Text staminaText;
 	public Text healthText;
@@ -49,6 +52,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		// Prep for persistence of the player
+		//DontDestroyOnLoad (this.gameObject);
+
 		deathFadeScreen.gameObject.SetActive (true);
 		deathFadeScreen.CrossFadeAlpha (0f, 0f, true);
 		StartCoroutine (RegenStats ());

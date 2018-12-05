@@ -45,6 +45,7 @@ public class Enemy_Basic : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		roomID = new Vector2Int ((Mathf.FloorToInt(this.transform.position.x) / 10) - 20, (Mathf.FloorToInt(this.transform.position.y) / 10) - 19);
 		if (awareOfPlayer && !dazed) {
 			playerPos = new Vector2 (player.transform.position.x, player.transform.position.y);
 			toPlayer = playerPos - new Vector2 (this.transform.position.x, this.transform.position.y);

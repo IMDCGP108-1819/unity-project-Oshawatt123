@@ -48,6 +48,8 @@ public class playerAttack : MonoBehaviour {
 					attacker.GetComponent<PlayerMovement> ().attackTime = attackStartTime;
 				} else if (attacker.CompareTag ("Enemy")) {
 					attacker.GetComponent<Enemy_Basic> ().attackTime = attackStartTime;
+				} else if (attacker.CompareTag ("Squad")) {
+					attacker.GetComponent<squadScript> ().attackTime = attackStartTime;
 				}
 				notAlreadyAttacked = false;
 				Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll (attackPos.position, new Vector2 (attackRangeX, attackRangeY), 0, mobLayer);

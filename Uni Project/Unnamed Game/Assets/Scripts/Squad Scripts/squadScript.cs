@@ -19,6 +19,8 @@ public class squadScript : MonoBehaviour {
 	public float speed;
 	private Vector2Int roomID;
 
+	public playerAttack attackScript;
+
 	// idle variables
 	public float followRange;
 
@@ -31,6 +33,8 @@ public class squadScript : MonoBehaviour {
 	private Collider2D[] nearbyEnemies;
 	private GameObject current_target = null;
 	private float enemyDistance;
+
+	public float attackTime;
 
 	// Use this for initialization
 	void Start () {
@@ -53,6 +57,9 @@ public class squadScript : MonoBehaviour {
 		} else if (state == 3) {
 			engaged ();
 		}
+
+		attackTime -= Time.deltaTime;
+
 	}
 
 	private float getDistance(GameObject object1, GameObject object2){
@@ -75,8 +82,7 @@ public class squadScript : MonoBehaviour {
 		playerDistance = getDistance (this.gameObject, player);
 		if (playerDistance > followRange) {
 			state = 2;
-		}// else if enemy in attack range
-		//else if player in close follow range
+		}
 	}
 
 	private void follow(){
@@ -93,6 +99,9 @@ public class squadScript : MonoBehaviour {
 		Debug.Log ("engaged in combat");
 		enemyDistance = getDistance (this.gameObject, current_target);
 		rigidBody.velocity = ((current_target.transform.position - this.transform.position) / enemyDistance) * speed;
+		if (enemyDistance < attackRadius) {
+			attackScript.attack (attackTime, this.gameObject);
+		}
 	}
 
 	void OnDrawGizmos(){

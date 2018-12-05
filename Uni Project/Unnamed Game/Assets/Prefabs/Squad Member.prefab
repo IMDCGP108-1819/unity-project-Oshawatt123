@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4502783469685734}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: attackPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,11 +37,11 @@ GameObject:
   - component: {fileID: 212864859061006196}
   - component: {fileID: 61097278841066854}
   - component: {fileID: 50489933223033552}
-  - component: {fileID: 95209368153233632}
   - component: {fileID: 114356144507887818}
-  m_Layer: 8
+  - component: {fileID: 114302472762024356}
+  m_Layer: 0
   m_Name: Squad Member
-  m_TagString: Enemy
+  m_TagString: Squad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,8 +55,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4353223045236012}
   - component: {fileID: 61443102024135680}
-  m_Layer: 9
-  m_Name: SkeletonHitBox
+  m_Layer: 13
+  m_Name: SquadHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,24 +173,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6108297, y: 0.85770977}
   m_EdgeRadius: 0
---- !u!95 &95209368153233632
-Animator:
-  serializedVersion: 3
+--- !u!114 &114302472762024356
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1691906004509400}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8ec25758638b27f499291f860974783b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed2cfae2c429444a9d912da34f9f77c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  maxHealth: 0
+  rigidBody: {fileID: 50489933223033552}
+  speed: 2
+  attackScript: {fileID: 114356144507887818}
+  followRange: 1
+  engageRadius: 5
+  attackRadius: 0.7
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  attackTime: 0
 --- !u!114 &114356144507887818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -204,13 +209,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mobLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 512
   attackStartTime: 5
   attackPos: {fileID: 4502783469685734}
-  attackRangeX: 0.3
-  attackRangeY: 0.3
-  damage: 20
-  playerAnim: {fileID: 95209368153233632}
+  attackRangeX: 0.41
+  attackRangeY: 0.7
+  damage: 11
+  playerAnim: {fileID: 0}
 --- !u!212 &212864859061006196
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -246,7 +251,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 99
-  m_Sprite: {fileID: 21300000, guid: 622f5c0a74bc50e42b544bdc36251a60, type: 3}
+  m_Sprite: {fileID: 21300006, guid: d1788ecdb2574924ea3cba662df88f10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

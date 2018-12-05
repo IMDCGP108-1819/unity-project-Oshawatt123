@@ -75,7 +75,6 @@ public class squadScript : MonoBehaviour {
 				current_target = enemy.gameObject;
 			}
 		}
-		Debug.Log (nearbyEnemies.Length);
 	}
 
 	private void idle(){

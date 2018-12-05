@@ -8,6 +8,8 @@ public class squadSpawn : MonoBehaviour {
 
 	public GameObject[] squadMembers;
 
+	private GameObject player;
+
 	private Vector2 detectSize;
 	public float detectSizeX;
 	public float detectSizeY;
@@ -16,6 +18,7 @@ public class squadSpawn : MonoBehaviour {
 	public LayerMask playerLayer;
 
 	void Start(){
+		player = GameObject.FindGameObjectWithTag ("Player");
 		detectSize = new Vector2 (detectSizeX, detectSizeY);
 		Pos = new Vector2 (this.transform.position.x, this.transform.position.y);
 	}
@@ -25,6 +28,8 @@ public class squadSpawn : MonoBehaviour {
 			Collider2D[] nearbyObjects_Cage = Physics2D.OverlapBoxAll (Pos, detectSize, 0, playerLayer);
 			if (nearbyObjects_Cage.Length > 0) {
 				Debug.Log ("Player getting squad member");
+				GameObject tempSquadMember = Instantiate (squadMembers [Random.Range (0, squadMembers.Length - 1)], player.transform.position, Quaternion.identity) as GameObject;
+				player.GetComponent<PlayerMovement> ().addSquadMember (tempSquadMember);
 			}
 		}
 	}

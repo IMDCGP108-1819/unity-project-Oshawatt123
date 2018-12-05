@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float spawnY;
 
 	//Player Squadage
-	private GameObject[] squad;
+	private List<GameObject> squad;
 
 	//UI Variables
 	public Text staminaText;
@@ -170,5 +170,12 @@ public class PlayerMovement : MonoBehaviour {
 	public void addEssence(){
 		essences += 1;
 		Debug.Log ("added essence");
+	}
+
+	//Squadage Scripts
+
+	public void addSquadMember(GameObject squadMember){
+		squad.Add (squadMember);
+		Debug.Log (squad);
 	}
 }

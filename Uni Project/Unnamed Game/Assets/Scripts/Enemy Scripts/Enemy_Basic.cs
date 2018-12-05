@@ -93,4 +93,8 @@ public class Enemy_Basic : MonoBehaviour {
 	public void endAttackAnim(){
 		enemyAnim.SetBool("isAttacking", false);
 	}
+
+	public Vector2Int getRoomID(){
+		return roomID;
+	}
 }

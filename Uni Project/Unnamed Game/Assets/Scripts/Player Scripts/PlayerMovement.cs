@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		// Prep for persistence of the player
 		//DontDestroyOnLoad (this.gameObject);
-
+		squad = new List<GameObject>();
 		deathFadeScreen.gameObject.SetActive (true);
 		deathFadeScreen.CrossFadeAlpha (0f, 0f, true);
 		StartCoroutine (RegenStats ());
@@ -177,5 +177,9 @@ public class PlayerMovement : MonoBehaviour {
 	public void addSquadMember(GameObject squadMember){
 		squad.Add (squadMember);
 		Debug.Log (squad);
+	}
+
+	public void setCanMove(bool boolie){
+		canMove = boolie;
 	}
 }

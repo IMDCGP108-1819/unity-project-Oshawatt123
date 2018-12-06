@@ -10,6 +10,9 @@ public class squadSpawn : MonoBehaviour {
 
 	private GameObject player;
 
+	public GameObject SquadRecruitPopUp;
+	private Canvas canvas;
+
 	private Vector2 detectSize;
 	public float detectSizeX;
 	public float detectSizeY;
@@ -18,6 +21,7 @@ public class squadSpawn : MonoBehaviour {
 	public LayerMask playerLayer;
 
 	void Start(){
+		canvas = FindObjectOfType<Canvas> ();
 		player = GameObject.FindGameObjectWithTag ("Player");
 		detectSize = new Vector2 (detectSizeX, detectSizeY);
 		Pos = new Vector2 (this.transform.position.x, this.transform.position.y);
@@ -30,8 +34,14 @@ public class squadSpawn : MonoBehaviour {
 				Debug.Log ("Player getting squad member");
 				GameObject tempSquadMember = Instantiate (squadMembers [Random.Range (0, squadMembers.Length - 1)], player.transform.position, Quaternion.identity) as GameObject;
 				player.GetComponent<PlayerMovement> ().addSquadMember (tempSquadMember);
+				//SquadRecruitOverlay ();
 			}
 		}
+	}
+
+	private void SquadRecruitOverlay(){
+		GameObject UIOverlay = Instantiate (SquadRecruitPopUp, canvas.transform);
+		UIOverlay.transform.SetParent (canvas.transform);
 	}
 
 	void OnDrawGizmos(){

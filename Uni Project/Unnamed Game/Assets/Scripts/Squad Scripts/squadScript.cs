@@ -34,12 +34,18 @@ public class squadScript : MonoBehaviour {
 	private GameObject current_target = null;
 	private float enemyDistance;
 
+	private float[] stats = new float[3];
+
 	public float attackTime;
 
 	// Use this for initialization
 	void Start () {
 		state = 1;
 		player = GameObject.FindGameObjectWithTag ("Player");
+		stats = GameObject.FindGameObjectWithTag ("cage").GetComponent<squadSpawn> ().getSquadMemberStats ();
+		Debug.Log (stats[0]);
+		Debug.Log (stats[1]);
+		Debug.Log (stats[2]);
 	}
 	
 	// Update is called once per frame

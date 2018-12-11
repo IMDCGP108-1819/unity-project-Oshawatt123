@@ -168,6 +168,7 @@ public class PlayerMovement : MonoBehaviour {
 		Debug.Log ("added essence");
 	}
 
+	// pause and death helper script
 	public void setCanMove(bool boolie){
 		canMove = boolie;
 	}

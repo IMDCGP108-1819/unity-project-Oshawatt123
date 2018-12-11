@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114139603783674128}
   m_Layer: 0
   m_Name: cage
-  m_TagString: Untagged
+  m_TagString: cage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gizmoMarker: {fileID: 1904850719905098}
   squadMembers:
-  - {fileID: 0}
+  - {fileID: 1691906004509400, guid: 1a9bd1c698a9e2a41aba982e2d092c98, type: 2}
+  player: {fileID: 0}
+  SquadRecruitPopUp: {fileID: 0}
   detectSizeX: 2
   detectSizeY: 2
   playerLayer:

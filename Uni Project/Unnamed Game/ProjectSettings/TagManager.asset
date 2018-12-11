@@ -12,6 +12,7 @@ TagManager:
   - Entry
   - Squad
   - squadUIPopUp
+  - cage
   layers:
   - Default
   - TransparentFX

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class squadSpawn : MonoBehaviour {
-
+	
 	public GameObject gizmoMarker;
 
 	public GameObject[] squadMembers;
@@ -21,7 +21,14 @@ public class squadSpawn : MonoBehaviour {
 
 	public LayerMask playerLayer;
 
+	private float[] squadMemberStats = new float[3];
+
 	void Start(){
+		// generate created squad member stats
+		squadMemberStats [0] = Random.Range (1f, 4F); // detect range
+		squadMemberStats [1] = Random.Range (3f, 7f); // attack damage
+		squadMemberStats [2] = Random.Range (20f, 150f); // health
+
 		SquadRecruitPopUp = GameObject.FindWithTag ("squadUIPopUp");
 		SquadRecruitPopUp.SetActive (false);
 		/*canvasGroups = FindObjectsOfType<CanvasGroup> ();
@@ -47,6 +54,10 @@ public class squadSpawn : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	public float[] getSquadMemberStats(){
+		return squadMemberStats;
 	}
 
 	/*void OnGUI(){

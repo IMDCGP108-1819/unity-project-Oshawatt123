@@ -70,7 +70,7 @@ public class squadSpawn : MonoBehaviour {
 
 	public void addSquadMember(){
 		GameObject tempSquadMember = Instantiate (squadMembers [Random.Range (0, squadMembers.Length - 1)], player.transform.position, Quaternion.identity) as GameObject;
-		player.GetComponent<PlayerMovement> ().addSquadMember (tempSquadMember);
+		player.GetComponent<squadControl> ().addSquadMember (tempSquadMember);
 		SquadRecruitPopUp.SetActive (false);
 		addingMember = false;
 		addedMember = true;

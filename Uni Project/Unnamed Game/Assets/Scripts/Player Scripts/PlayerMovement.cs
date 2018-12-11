@@ -42,9 +42,6 @@ public class PlayerMovement : MonoBehaviour {
 	public float spawnX;
 	public float spawnY;
 
-	//Player Squadage
-	private List<GameObject> squad;
-
 	//UI Variables
 	public Text staminaText;
 	public Text healthText;
@@ -55,7 +52,6 @@ public class PlayerMovement : MonoBehaviour {
 
 		// Prep for persistence of the player
 		//DontDestroyOnLoad (this.gameObject);
-		squad = new List<GameObject>();
 		deathFadeScreen.gameObject.SetActive (true);
 		deathFadeScreen.CrossFadeAlpha (0f, 0f, true);
 		StartCoroutine (RegenStats ());
@@ -170,13 +166,6 @@ public class PlayerMovement : MonoBehaviour {
 	public void addEssence(){
 		essences += 1;
 		Debug.Log ("added essence");
-	}
-
-	//Squadage Scripts
-
-	public void addSquadMember(GameObject squadMember){
-		squad.Add (squadMember);
-		Debug.Log (squad);
 	}
 
 	public void setCanMove(bool boolie){

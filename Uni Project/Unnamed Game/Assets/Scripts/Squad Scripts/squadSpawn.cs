@@ -8,9 +8,9 @@ public class squadSpawn : MonoBehaviour {
 
 	public GameObject[] squadMembers;
 
-	private GameObject player;
+	public GameObject player;
 
-	private GameObject SquadRecruitPopUp;
+	public GameObject SquadRecruitPopUp;
 	private bool addingMember = false;
 	private bool addedMember = false;
 
@@ -62,6 +62,10 @@ public class squadSpawn : MonoBehaviour {
 				addingMember = false;
 			}
 		}
+	}*/
+
+	/*public void BtnAddSquadMember(){
+		addSquadMember();
 	}*/
 
 	public void addSquadMember(){

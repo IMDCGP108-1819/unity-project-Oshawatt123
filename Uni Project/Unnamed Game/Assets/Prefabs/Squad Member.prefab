@@ -39,7 +39,8 @@ GameObject:
   - component: {fileID: 50489933223033552}
   - component: {fileID: 114356144507887818}
   - component: {fileID: 114302472762024356}
-  m_Layer: 0
+  - component: {fileID: 95786928004365460}
+  m_Layer: 14
   m_Name: Squad Member
   m_TagString: Squad
   m_Icon: {fileID: 0}
@@ -173,6 +174,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6108297, y: 0.85770977}
   m_EdgeRadius: 0
+--- !u!95 &95786928004365460
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1691906004509400}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b6033475e5d45554e907cae11c3758c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114302472762024356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,7 +234,7 @@ MonoBehaviour:
   attackRangeX: 0.41
   attackRangeY: 0.7
   damage: 11
-  playerAnim: {fileID: 0}
+  playerAnim: {fileID: 95786928004365460}
 --- !u!212 &212864859061006196
 SpriteRenderer:
   m_ObjectHideFlags: 1

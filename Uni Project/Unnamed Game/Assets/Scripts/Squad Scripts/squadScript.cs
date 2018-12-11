@@ -39,6 +39,7 @@ public class squadScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		state = 1;
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 	
 	// Update is called once per frame
@@ -95,7 +96,6 @@ public class squadScript : MonoBehaviour {
 	}
 
 	private void engaged(){
-		Debug.Log ("engaged in combat");
 		enemyDistance = getDistance (this.gameObject, current_target);
 		rigidBody.velocity = ((current_target.transform.position - this.transform.position) / enemyDistance) * speed;
 		if (enemyDistance < attackRadius) {

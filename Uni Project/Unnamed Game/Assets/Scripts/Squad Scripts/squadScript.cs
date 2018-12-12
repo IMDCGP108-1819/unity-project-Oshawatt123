@@ -35,6 +35,9 @@ public class squadScript : MonoBehaviour {
 	private float enemyDistance;
 
 	private float[] stats = new float[3];
+	// index 0 is detect range  (INT)
+	// index 1 is attack damage (STR)
+	// index 2 is health		(DEF)
 
 	public float attackTime;
 
@@ -44,8 +47,11 @@ public class squadScript : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		stats = GameObject.FindGameObjectWithTag ("cage").GetComponent<squadSpawn> ().getSquadMemberStats ();
 		Debug.Log (stats[0]);
+		engageRadius = stats [0];
 		Debug.Log (stats[1]);
+		attackScript.damage = stats [1];
 		Debug.Log (stats[2]);
+		maxHealth = stats [2];
 	}
 	
 	// Update is called once per frame

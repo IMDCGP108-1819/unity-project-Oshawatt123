@@ -12,4 +12,5 @@ public class menuScript : MonoBehaviour {
 	public void exitGame(){
 		Application.Quit ();
 	}
+
 }

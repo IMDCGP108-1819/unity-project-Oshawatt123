@@ -20,6 +20,7 @@ public class roomTemplates : MonoBehaviour {
 	private bool killedBoos;
 	public GameObject boss;
 	public GameObject cage;
+	public GameObject ladder;
 
 	private destroyer Destroyer;
 
@@ -37,6 +38,7 @@ public class roomTemplates : MonoBehaviour {
 		helpSpawned = false;
 		puzzleDoors [0] = 1;
 		puzzleDoors [1] = 2;
+		// if i plan on adding more puzzles with more rooms, but for now they hold arbitrary placeholder values
 		puzzleDoors [2] = 66;
 		puzzleDoors [3] = 66;
 		numOfDoors = 2;
@@ -57,7 +59,9 @@ public class roomTemplates : MonoBehaviour {
 			Destroyer.destroyself();
 			Instantiate (boss, rooms[rooms.Count-1].transform.position, Quaternion.identity);
 			Vector3 cagePos = new Vector3 (rooms [rooms.Count - 1].transform.position.x - 1, rooms [rooms.Count - 1].transform.position.y - 1, -1);
-			Instantiate (cage,cagePos, Quaternion.identity);
+			Instantiate (cage, cagePos, Quaternion.identity);
+			Vector3 ladderPos = new Vector3 (rooms [rooms.Count - 1].transform.position.x - 3, rooms [rooms.Count - 1].transform.position.y - 3, -1);
+			Instantiate (ladder, ladderPos, Quaternion.identity);
 		} else {
 			waitTime -= Time.deltaTime;
 		}

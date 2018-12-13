@@ -8,4 +8,9 @@ public class addSquadMemberBtn : MonoBehaviour {
 		GameObject.FindGameObjectWithTag("cage").GetComponent<squadSpawn> ().addSquadMember();
 	}
 
+	public void closeSelf(){
+		GameObject.Find ("SquadRecruitPop-Up").SetActive (false);
+		GameObject.FindGameObjectWithTag ("cage").GetComponent<squadSpawn> ().addingMember = false;
+	}
+
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class squadSpawn : MonoBehaviour {
 	
@@ -11,7 +12,7 @@ public class squadSpawn : MonoBehaviour {
 	public GameObject player;
 
 	public GameObject SquadRecruitPopUp;
-	private bool addingMember = false;
+	public bool addingMember = false;
 	private bool addedMember = false;
 
 	private Vector2 detectSize;
@@ -90,6 +91,9 @@ public class squadSpawn : MonoBehaviour {
 	private void SquadRecruitOverlay(){
 		addingMember = true;
 		SquadRecruitPopUp.SetActive (true);
+		GameObject.Find ("IntText").GetComponent<TextMeshProUGUI> ().text = squadMemberStats [0].ToString();
+		GameObject.Find ("StrText").GetComponent<TextMeshProUGUI> ().text = squadMemberStats [1].ToString();
+		GameObject.Find ("DefText").GetComponent<TextMeshProUGUI> ().text = squadMemberStats [2].ToString();
 	}
 
 	void OnDrawGizmos(){

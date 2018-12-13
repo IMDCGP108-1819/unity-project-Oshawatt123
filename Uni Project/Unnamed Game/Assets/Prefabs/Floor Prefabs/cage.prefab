@@ -81,8 +81,10 @@ MonoBehaviour:
   gizmoMarker: {fileID: 1904850719905098}
   squadMembers:
   - {fileID: 1691906004509400, guid: 1a9bd1c698a9e2a41aba982e2d092c98, type: 2}
-  player: {fileID: 0}
-  SquadRecruitPopUp: {fileID: 0}
+  player: {fileID: 1274538308578798, guid: aecc4d959048f9b4fbabb7bbd6053cfc, type: 2}
+  SquadRecruitPopUp: {fileID: 1482413704834006, guid: 2247984bf6a65c44ba88be111dd05d83,
+    type: 2}
+  addingMember: 0
   detectSizeX: 2
   detectSizeY: 2
   playerLayer:

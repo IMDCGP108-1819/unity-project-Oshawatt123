@@ -23,6 +23,8 @@ public class squadScript : MonoBehaviour {
 
 	// idle variables
 	public float followRange;
+	private bool toJitter = true;
+	public float jitterForce;
 
 	// follow variables
 
@@ -95,6 +97,18 @@ public class squadScript : MonoBehaviour {
 		if (playerDistance > followRange) {
 			state = 2;
 		}
+		if (toJitter) {
+			toJitter = false;
+			StartCoroutine (jitter ());
+		}
+	}
+
+	private IEnumerator jitter(){
+		Debug.Log ("jitter");
+		Vector2 move = new Vector2 (Random.Range (0,1), Random.Range (0,1));
+		this.rigidBody.AddForce (move * jitterForce, ForceMode2D.Impulse);
+		yield return new WaitForSeconds (0.2f);
+		toJitter = true;
 	}
 
 	private void follow(){

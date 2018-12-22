@@ -538,6 +538,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3a9c014bee1214bbf9913328f7d94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinCost: 5
+  essenceCost: 5
 --- !u!114 &614913550 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114489479267347604, guid: 2247984bf6a65c44ba88be111dd05d83,
@@ -658,7 +660,7 @@ Prefab:
     - target: {fileID: 224762172377866576, guid: 2247984bf6a65c44ba88be111dd05d83,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224762172377866576, guid: 2247984bf6a65c44ba88be111dd05d83,
         type: 2}
@@ -762,7 +764,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1482413704834006, guid: 2247984bf6a65c44ba88be111dd05d83, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1993152507714414, guid: 2247984bf6a65c44ba88be111dd05d83, type: 2}
       propertyPath: m_IsActive
@@ -958,7 +960,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &890857172
 MonoBehaviour:
@@ -1048,7 +1050,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1051797124 stripped
 MonoBehaviour:
@@ -1113,7 +1115,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4763739978388764, guid: 1445d99569fcec5419629279701e1bc5, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114338446750991016, guid: 1445d99569fcec5419629279701e1bc5,
         type: 2}
@@ -1508,7 +1510,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4025204289994398, guid: 90e5d325e1e02bc448a6c492b09c71bd, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90e5d325e1e02bc448a6c492b09c71bd, type: 2}
@@ -1699,7 +1701,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4628003089141768, guid: 36d3f2f6f3557224faa0f0a87ae69d7b, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36d3f2f6f3557224faa0f0a87ae69d7b, type: 2}

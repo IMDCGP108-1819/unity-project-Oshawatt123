@@ -8,7 +8,7 @@ public class destroyCoin : MonoBehaviour {
 		Debug.Log ("fnworfno");
 		if (other.gameObject.CompareTag ("Player")) {
 			Debug.Log ("Touchy Coin");
-			other.gameObject.GetComponent<PlayerMovement> ().addCoin ();
+			other.gameObject.GetComponent<PlayerMovement> ().setCoin (1);
 			Destroy (this.gameObject);
 		}
 	}

@@ -8,7 +8,7 @@ public class destrotyEssence : MonoBehaviour {
 		Debug.Log ("fwrgwfqad");
 		if (other.gameObject.CompareTag ("Player")) {
 			Debug.Log ("Touchy Essence");
-			other.gameObject.GetComponent<PlayerMovement> ().addEssence ();
+			other.gameObject.GetComponent<PlayerMovement> ().setEssence (1);
 			Destroy (this.gameObject);
 		}
 	}

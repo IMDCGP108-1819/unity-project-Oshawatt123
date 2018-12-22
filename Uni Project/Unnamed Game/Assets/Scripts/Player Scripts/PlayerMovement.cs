@@ -158,18 +158,27 @@ public class PlayerMovement : MonoBehaviour {
 
 	//Coinage Scripts
 
-	public void addCoin(){
-		coins += 1;
-		Debug.Log ("added coin");
+	public void setCoin(float coinage){
+		coins += coinage;
+		Debug.Log (coins);
 	}
 
-	public void addEssence(){
-		essences += 1;
+	public float getCoin(){
+		return coins;
+	}
+
+	public void setEssence(float essencage){
+		essences += essencage;
 		Debug.Log ("added essence");
+	}
+
+	public float getEssence(){
+		return essences;
 	}
 
 	// pause and death helper script
 	public void setCanMove(bool boolie){
 		canMove = boolie;
 	}
+
 }

@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour {
 		// Prep for persistence of the player
 		//DontDestroyOnLoad (this.gameObject);
 		deathFadeScreen.gameObject.SetActive (true);
-		deathFadeScreen.CrossFadeAlpha (0f, 0f, true);
+		deathFadeScreen.CrossFadeAlpha (0f, 3f, true);
 		StartCoroutine (RegenStats ());
 		playerHealth = maxHealth;
 	}

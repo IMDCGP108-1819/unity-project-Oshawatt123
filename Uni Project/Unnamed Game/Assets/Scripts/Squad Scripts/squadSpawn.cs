@@ -91,6 +91,7 @@ public class squadSpawn : MonoBehaviour {
 	private void SquadRecruitOverlay(){
 		addingMember = true;
 		SquadRecruitPopUp.SetActive (true);
+		SquadRecruitPopUp.GetComponent<CanvasGroup> ().alpha = 1f;
 		GameObject.Find ("IntText").GetComponent<TextMeshProUGUI> ().text = squadMemberStats [0].ToString();
 		GameObject.Find ("StrText").GetComponent<TextMeshProUGUI> ().text = squadMemberStats [1].ToString();
 		GameObject.Find ("DefText").GetComponent<TextMeshProUGUI> ().text = squadMemberStats [2].ToString();

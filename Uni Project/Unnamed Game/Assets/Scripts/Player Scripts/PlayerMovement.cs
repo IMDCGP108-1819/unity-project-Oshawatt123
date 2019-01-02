@@ -70,8 +70,11 @@ public class PlayerMovement : MonoBehaviour {
 		float moveHor = Input.GetAxis ("Horizontal");
 		float moveVer = Input.GetAxis ("Vertical");
 
+		// Flip the character based off of movement
 		Vector3 newScale = transform.localScale;
-		newScale.x = Input.GetAxisRaw ("Horizontal");
+		if (Input.GetAxisRaw("Horizontal") != 0){
+			newScale.x = Input.GetAxisRaw ("Horizontal") * -1;
+		}
 		transform.localScale = newScale;
 
 		/*if (Input.GetAxis ("Horizontal") != 0) {

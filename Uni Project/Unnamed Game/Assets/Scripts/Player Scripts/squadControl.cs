@@ -18,5 +18,8 @@ public class squadControl : MonoBehaviour {
 
 	void OnSceneLoaded(Scene scene, LoadSceneMode mode){
 		Debug.Log ("New scene tadaaa");
+		foreach (GameObject squadDude in squadMembers){
+			Instantiate (squadDude.gameObject, this.transform, false);
+		}
 	}
 }

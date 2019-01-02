@@ -72,10 +72,10 @@ public class PlayerMovement : MonoBehaviour {
 
 		if (moveHor > 0.1) {
 			Debug.Log ("going left");
-			this.transform.localScale.Set (1, 1, 1);
+			this.transform.lossyScale.Set (1, 1, 1);
 		}else if (moveHor < -0.1){
 			Debug.Log ("going right");
-			this.transform.localScale.Set (-1, 1, 1);
+			this.transform.lossyScale.Set (-1, 1, 1);
 		}
 
 		/*if (Input.GetAxis ("Horizontal") != 0) {

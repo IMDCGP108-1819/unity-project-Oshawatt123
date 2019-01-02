@@ -43,7 +43,7 @@ public class playerAttack : MonoBehaviour {
 			}*/
 			notAlreadyAttacked = true; // can be removed is NECESSARY but leaving as it works and don't feel like breaking this yet
 			if (notAlreadyAttacked == true) {
-				playerAnim.SetBool ("isAttacking", true);
+				playerAnim.SetTrigger ("attacking");
 				if (attacker.CompareTag ("Player")) {
 					attacker.GetComponent<PlayerMovement> ().attackTime = attackStartTime;
 				} else if (attacker.CompareTag ("Enemy")) {

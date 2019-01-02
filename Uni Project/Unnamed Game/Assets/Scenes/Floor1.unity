@@ -597,6 +597,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinCost: 5
   essenceCost: 5
+--- !u!114 &537961326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 537961324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06591e35f8ba3fc46a056c868ac3d34f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &614913550 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114489479267347604, guid: 2247984bf6a65c44ba88be111dd05d83,
@@ -818,6 +829,22 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2247984bf6a65c44ba88be111dd05d83, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &725545583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1993152507714414, guid: 2247984bf6a65c44ba88be111dd05d83,
+    type: 2}
+  m_PrefabInternal: {fileID: 725545582}
+--- !u!114 &725545584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 725545583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06591e35f8ba3fc46a056c868ac3d34f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &844238436
 GameObject:
   m_ObjectHideFlags: 0

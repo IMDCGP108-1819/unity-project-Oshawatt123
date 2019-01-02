@@ -70,6 +70,14 @@ public class PlayerMovement : MonoBehaviour {
 		float moveHor = Input.GetAxis ("Horizontal");
 		float moveVer = Input.GetAxis ("Vertical");
 
+		if (moveHor > 0.1) {
+			Debug.Log ("going left");
+			this.transform.localScale.Set (1, 1, 1);
+		}else if (moveHor < -0.1){
+			Debug.Log ("going right");
+			this.transform.localScale.Set (-1, 1, 1);
+		}
+
 		/*if (Input.GetAxis ("Horizontal") != 0) {
 			transform.localScale = new Vector3 (Mathf.Round(Input.GetAxisRaw ("Horizontal")), 0f, 0f);
 		}*/
@@ -77,6 +85,7 @@ public class PlayerMovement : MonoBehaviour {
 		//apply movement as velocity (keeps collisions going with no acceleration)
 		if (canMove) {
 			movement = new Vector2 (moveHor, moveVer);
+			playerAnim.SetFloat ("speed", movement.magnitude);
 		}
 
 		rigidBody.velocity = movement * moveSpeed;
@@ -89,9 +98,6 @@ public class PlayerMovement : MonoBehaviour {
 		//Roll
 		if (canRoll && !attacking && animAttacking == false && Input.GetAxisRaw ("Roll") == 1 && animRolling == false && stamina > rollStamina && rigidBody.velocity.magnitude > 0) { // fix co-routine
 			playerRoll();
-		}
-		//Add roll force
-		if (playerAnim.GetBool ("isRolling") == true) {
 			rigidBody.AddForce (rigidBody.velocity * rollMod, ForceMode2D.Impulse);
 		}
 

@@ -70,13 +70,9 @@ public class PlayerMovement : MonoBehaviour {
 		float moveHor = Input.GetAxis ("Horizontal");
 		float moveVer = Input.GetAxis ("Vertical");
 
-		if (moveHor > 0.1) {
-			Debug.Log ("going left");
-			this.transform.lossyScale.Set (1, 1, 1);
-		}else if (moveHor < -0.1){
-			Debug.Log ("going right");
-			this.transform.lossyScale.Set (-1, 1, 1);
-		}
+		Vector3 newScale = transform.localScale;
+		newScale.x = Input.GetAxisRaw ("Horizontal");
+		transform.localScale = newScale;
 
 		/*if (Input.GetAxis ("Horizontal") != 0) {
 			transform.localScale = new Vector3 (Mathf.Round(Input.GetAxisRaw ("Horizontal")), 0f, 0f);

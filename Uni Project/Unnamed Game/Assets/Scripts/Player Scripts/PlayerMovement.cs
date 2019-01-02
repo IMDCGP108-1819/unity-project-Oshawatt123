@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour {
 		roomID = new Vector2Int ((Mathf.FloorToInt(this.transform.position.x) / 10) - 20, (Mathf.FloorToInt(this.transform.position.y) / 10) - 19);
 
 		// Animation control
-		animAttacking = playerAnim.GetBool("isAttacking");
+		//animAttacking = playerAnim.GetBool("isAttacking");
 		animRolling = playerAnim.GetBool ("isRolling");
 
 		//Gets axis values for movement
@@ -142,6 +142,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	private IEnumerator death(){
+		// fades in a 'death screen' to hide the player being teleported back to the start
 		movement = new Vector2 (0f, 0f);
 		canMove = false;
 		deathFadeScreen.CrossFadeAlpha (1f, 2f, true);
@@ -161,7 +162,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
-	//Coinage Scripts
+	//Coinage Functions - getters and setters (more like adders) because they really shouldn't be public
 
 	public void setCoin(float coinage){
 		coins += coinage;

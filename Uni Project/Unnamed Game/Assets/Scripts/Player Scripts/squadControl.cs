@@ -22,4 +22,11 @@ public class squadControl : MonoBehaviour {
 			Instantiate (squadDude.gameObject, this.transform, false);
 		}
 	}
+
+	public void newFloor(Vector3 floorLocation){
+		foreach (GameObject squadMember in squadMembers) {
+			squadMember.transform.position = floorLocation;
+		}
+	}
+
 }

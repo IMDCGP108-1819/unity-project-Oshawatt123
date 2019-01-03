@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1691738082544902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 205, y: 194.975, z: 0}
+  m_LocalPosition: {x: 206.5, y: 194.5, z: -0.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectX: 1
   detectY: 1
+  entryRoom: {fileID: 1633499933789874, guid: 79280a14018ed6244a767925927d9ce7, type: 2}
   playerLayer:
     serializedVersion: 2
     m_Bits: 32768

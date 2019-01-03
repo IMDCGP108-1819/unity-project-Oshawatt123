@@ -181,9 +181,14 @@ public class PlayerMovement : MonoBehaviour {
 		return essences;
 	}
 
-	// pause and death helper script
+	// pause and death helper function
 	public void setCanMove(bool boolie){
 		canMove = boolie;
+	}
+
+	// new floor function
+	public void newFloor(Vector3 floorLocation){
+		this.transform.position = floorLocation;
 	}
 
 }

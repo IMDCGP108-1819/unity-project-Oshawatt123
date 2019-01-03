@@ -12,15 +12,17 @@ public class ladderScript : MonoBehaviour {
 
 	public LayerMask playerLayer;
 
+	private Vector3 floorLocation = new Vector3(200, 600, 0);
+
 	void Start(){
 		detectSize = new Vector2 (detectX, detectY);
 	}
 	
 	public void nextScene(){
 		//SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
-		GameObject.Find ("roomTemplates").GetComponent<roomTemplates> ().newFloor ();
-		GameObject.Find ("Playerparent").transform.position = new Vector3 (200, 600, 0);
-		Instantiate(entryRoom, new Vector2(200,600), Quaternion.identity);
+		GameObject.Find ("roomTemplates").GetComponent<roomTemplates> ().newFloor();
+		GameObject.Find ("Playerparent").GetComponentInChildren<PlayerMovement> ().newFloor (floorLocation);
+		Instantiate(entryRoom, floorLocation, Quaternion.identity);
 	}
 
 	void Update(){

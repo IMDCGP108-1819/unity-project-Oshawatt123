@@ -10,12 +10,12 @@ public class anvilScript : MonoBehaviour {
 
 	public LayerMask playerLayer;
 
-	private GameObject AnvilUI;
+	public GameObject AnvilUI;
 
 	// Use this for initialization
 	void Start () {
 		detectSize = new Vector2 (detectX, detectY);
-		AnvilUI = GameObject.Find ("AnvilPopUp");
+		//AnvilUI = GameObject.Find ("AnvilPopUp");
 		AnvilUI.SetActive (false);
 	}
 	

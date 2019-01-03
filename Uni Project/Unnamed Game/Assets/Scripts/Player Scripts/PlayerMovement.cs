@@ -27,7 +27,6 @@ public class PlayerMovement : MonoBehaviour {
 	public float rollMod;
 	public bool canRoll = true;
 	private bool animRolling;
-	private bool animAttacking;
 
 	//Animation variables
 	public Animator playerAnim;
@@ -95,7 +94,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		//Roll
-		if (canRoll && !attacking && animAttacking == false && Input.GetAxisRaw ("Roll") == 1 && animRolling == false && stamina > rollStamina && rigidBody.velocity.magnitude > 0) { // fix co-routine
+		if (canRoll && !attacking && Input.GetAxisRaw ("Roll") == 1 && animRolling == false && stamina > rollStamina && rigidBody.velocity.magnitude > 0) { // fix co-routine
 			playerRoll();
 			rigidBody.AddForce (rigidBody.velocity * rollMod, ForceMode2D.Impulse);
 		}

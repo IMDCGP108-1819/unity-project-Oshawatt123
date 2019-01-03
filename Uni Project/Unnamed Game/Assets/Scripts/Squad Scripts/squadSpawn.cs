@@ -31,7 +31,7 @@ public class squadSpawn : MonoBehaviour {
 		squadMemberStats [2] = Random.Range (20f, 150f); // health
 
 		SquadRecruitPopUp = GameObject.FindWithTag ("squadUIPopUp");
-		SquadRecruitPopUp.SetActive (false);
+		SquadRecruitPopUp.GetComponent<CanvasGroup> ().alpha = 0f;
 		/*canvasGroups = FindObjectsOfType<CanvasGroup> ();
 		for (int i = 0; i < canvasGroups.Length; i++) {
 			if(canvasGroups[i].CompareTag("squadUIPopUp")){           // this did not find the correct object, so chris did that ^^
@@ -90,7 +90,6 @@ public class squadSpawn : MonoBehaviour {
 
 	private void SquadRecruitOverlay(){
 		addingMember = true;
-		SquadRecruitPopUp.SetActive (true);
 		SquadRecruitPopUp.GetComponent<CanvasGroup> ().alpha = 1f;
 		GameObject.Find ("IntText").GetComponent<TextMeshProUGUI> ().text = squadMemberStats [0].ToString();
 		GameObject.Find ("StrText").GetComponent<TextMeshProUGUI> ().text = squadMemberStats [1].ToString();

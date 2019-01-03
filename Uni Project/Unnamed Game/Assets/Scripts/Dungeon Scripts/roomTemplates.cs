@@ -17,7 +17,6 @@ public class roomTemplates : MonoBehaviour {
 
 	public float waitTime;
 	public bool spawnedBoss;
-	private bool killedBoos;
 	public GameObject boss;
 	public GameObject cage;
 	public GameObject ladder;
@@ -50,13 +49,14 @@ public class roomTemplates : MonoBehaviour {
 				spawnPuzzle ();
 			}
 
-
 			// SWITCH THE BOSS SPAWNY THING TO ONE MORE LIKE THE PUZZLE AND HAVE SOME PRE-SET BOSS ROOMS
 			// WORKS BETTER AND MORE FUN FOR THE PLAYER
 
-
+			Debug.Log ("spawning boss");
 			spawnedBoss = true;
-			Destroyer.destroyself();
+			if (Destroyer != null) {
+				Destroyer.destroyself();
+			}
 			Instantiate (boss, rooms[rooms.Count-1].transform.position, Quaternion.identity);
 			Vector3 cagePos = new Vector3 (rooms [rooms.Count - 1].transform.position.x - 1, rooms [rooms.Count - 1].transform.position.y - 1, -1);
 			Instantiate (cage, cagePos, Quaternion.identity);
@@ -98,4 +98,14 @@ public class roomTemplates : MonoBehaviour {
 		}
 		Debug.Log ("Room: " + puzzleRoom.name);
 	}
+
+	public void newFloor(){
+		spawnedBoss = false;
+		waitTime = 5f;
+		foreach (GameObject room in rooms) {
+			Destroy (room);
+		}
+		rooms.Clear ();
+	}
+
 }

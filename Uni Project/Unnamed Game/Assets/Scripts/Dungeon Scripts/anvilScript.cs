@@ -15,7 +15,7 @@ public class anvilScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		detectSize = new Vector2 (detectX, detectY);
-		//AnvilUI = GameObject.Find ("AnvilPopUp");
+		AnvilUI = GameObject.Find ("AnvilPopUp");
 		AnvilUI.SetActive (false);
 	}
 	

@@ -46,6 +46,9 @@ public class PlayerMovement : MonoBehaviour {
 	public Text healthText;
 	public Image deathFadeScreen;
 
+	// Floor Variables
+	private int floor;
+
 	// Use this for initialization
 	void Start () {
 
@@ -188,7 +191,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	// new floor function
 	public void newFloor(Vector3 floorLocation){
-		this.transform.position = floorLocation;
+		this.transform.position = new Vector3(floorLocation.x + 5, floorLocation.y + 5, 0);
 	}
 
 }

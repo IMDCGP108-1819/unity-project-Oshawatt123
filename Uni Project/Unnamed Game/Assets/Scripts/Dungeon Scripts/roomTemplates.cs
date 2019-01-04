@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class roomTemplates : MonoBehaviour {
 
@@ -31,6 +32,10 @@ public class roomTemplates : MonoBehaviour {
 	private int numOfDoors;
 	private int puzzleRoomIndex;
 
+	private Vector3[] floors = new Vector3[4];
+
+	public int floor = 0;
+
 	void Start(){
 		Destroyer = GameObject.FindGameObjectWithTag ("Entry").GetComponentInChildren<destroyer> ();
 		// hardcoding values for the only puzzle room. will be a switch once more exist
@@ -41,6 +46,11 @@ public class roomTemplates : MonoBehaviour {
 		puzzleDoors [2] = 66;
 		puzzleDoors [3] = 66;
 		numOfDoors = 2;
+		floors [0] = new Vector3 (200, 200, 0);
+		floors [1] = new Vector3 (200, 600, 0);
+		floors [2] = new Vector3 (600, 600, 0);
+		floors [3] = new Vector3 (600, 200, 0);
+
 	}
 
 	void Update(){
@@ -100,12 +110,20 @@ public class roomTemplates : MonoBehaviour {
 	}
 
 	public void newFloor(){
+		floor = floor + 1;
+		if (floor == 3) {
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
+		}
 		spawnedBoss = false;
 		waitTime = 5f;
 		foreach (GameObject room in rooms) {
 			Destroy (room);
 		}
 		rooms.Clear ();
+	}
+
+	public Vector3 getFloorLocation(int floor){
+		return floors [floor];
 	}
 
 }

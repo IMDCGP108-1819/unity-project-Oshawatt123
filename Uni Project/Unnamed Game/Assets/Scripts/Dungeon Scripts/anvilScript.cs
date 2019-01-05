@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class anvilScript : MonoBehaviour {
 
@@ -31,6 +32,7 @@ public class anvilScript : MonoBehaviour {
 	public void openAnvilUI(){
 		Debug.Log ("open anvil UI");
 		AnvilUI.SetActive (true);
+		GameObject.Find ("EssenceCost").GetComponent<TextMeshProUGUI> ().text = GameObject.Find ("Player").GetComponent<PlayerMovement> ().getEssenceCost ().ToString();
 	}
 
 	void OnDrawGizmos(){

@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour {
 
 	//Player Coinage
-	private float coins;
-	private float essences;
+	public float coins;
+	public float coinCost = 3f;
+	public float essences;
+	public float essenceCost = 3f;
 
 	//Movement variables
 	public Rigidbody2D rigidBody;
@@ -175,6 +177,10 @@ public class PlayerMovement : MonoBehaviour {
 		return coins;
 	}
 
+	public float getCoinCost(){
+		return coinCost;
+	}
+
 	public void setEssence(float essencage){
 		essences += essencage;
 		Debug.Log ("added essence");
@@ -182,6 +188,14 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float getEssence(){
 		return essences;
+	}
+
+	public float getEssenceCost(){
+		return essenceCost;
+	}
+
+	public void setEssenceCost(float newEssenceCost){
+		essenceCost = newEssenceCost;
 	}
 
 	// pause and death helper function

@@ -191,7 +191,9 @@ public class PlayerMovement : MonoBehaviour {
 
 	// new floor function
 	public void newFloor(Vector3 floorLocation){
-		this.transform.position = new Vector3(floorLocation.x + 5, floorLocation.y + 5, 0);
+		// implement the fade thingy
+		canMove = false;
+		this.transform.position = new Vector3(floorLocation.x + 1, floorLocation.y - 1, 0);
 	}
 
 }

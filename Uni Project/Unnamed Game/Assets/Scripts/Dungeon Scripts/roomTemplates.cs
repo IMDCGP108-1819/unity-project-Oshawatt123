@@ -61,17 +61,15 @@ public class roomTemplates : MonoBehaviour {
 
 			// SWITCH THE BOSS SPAWNY THING TO ONE MORE LIKE THE PUZZLE AND HAVE SOME PRE-SET BOSS ROOMS
 			// WORKS BETTER AND MORE FUN FOR THE PLAYER
-
+			destroyDestroyer();
 			Debug.Log ("spawning boss");
 			spawnedBoss = true;
-			if (Destroyer != null) {
-				Destroyer.destroyself();
-			}
 			Instantiate (boss, rooms[rooms.Count-1].transform.position, Quaternion.identity);
 			Vector3 cagePos = new Vector3 (rooms [rooms.Count - 1].transform.position.x - 1, rooms [rooms.Count - 1].transform.position.y - 1, -1);
 			Instantiate (cage, cagePos, Quaternion.identity);
 			Vector3 ladderPos = new Vector3 (rooms [rooms.Count - 1].transform.position.x - 3, rooms [rooms.Count - 1].transform.position.y - 3, -1);
 			Instantiate (ladder, ladderPos, Quaternion.identity);
+			GameObject.Find ("Player").GetComponent<PlayerMovement> ().setCanMove (true);
 		} else {
 			waitTime -= Time.deltaTime;
 		}
@@ -110,6 +108,8 @@ public class roomTemplates : MonoBehaviour {
 	}
 
 	public void newFloor(){
+		// destroy old entry room
+		Destroy(GameObject.FindGameObjectWithTag("Entry"));
 		floor = floor + 1;
 		if (floor == 3) {
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
@@ -124,6 +124,13 @@ public class roomTemplates : MonoBehaviour {
 
 	public Vector3 getFloorLocation(int floor){
 		return floors [floor];
+	}
+
+	public void destroyDestroyer(){
+		Destroyer = GameObject.FindGameObjectWithTag ("Entry").GetComponentInChildren<destroyer> ();
+		if (Destroyer != null) {
+			Destroyer.destroyself();
+		}
 	}
 
 }

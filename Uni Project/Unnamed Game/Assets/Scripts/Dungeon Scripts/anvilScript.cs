@@ -28,7 +28,7 @@ public class anvilScript : MonoBehaviour {
 		}
 	}
 
-	private void openAnvilUI(){
+	public void openAnvilUI(){
 		Debug.Log ("open anvil UI");
 		AnvilUI.SetActive (true);
 	}

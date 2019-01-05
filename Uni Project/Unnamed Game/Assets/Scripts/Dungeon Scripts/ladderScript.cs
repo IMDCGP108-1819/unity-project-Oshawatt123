@@ -22,7 +22,7 @@ public class ladderScript : MonoBehaviour {
 		//SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
 		GameObject.Find ("roomTemplates").GetComponent<roomTemplates> ().newFloor();
 		floorLocation = GameObject.Find ("roomTemplates").GetComponent<roomTemplates> ().getFloorLocation(GameObject.Find("roomTemplates").GetComponent<roomTemplates>().floor);
-		Debug.Log (floorLocation);
+		GameObject.Find ("Anvil").GetComponent<anvilScript> ().openAnvilUI ();
 		// Resetting and moving objects so they can work again on the new floor with no issues
 		Instantiate(entryRoom, floorLocation, Quaternion.identity);
 		GameObject.Find ("Playerparent").GetComponentInChildren<PlayerMovement> ().newFloor (floorLocation);

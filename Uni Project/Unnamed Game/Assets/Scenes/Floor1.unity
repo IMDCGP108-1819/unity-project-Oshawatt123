@@ -595,8 +595,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3a9c014bee1214bbf9913328f7d94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinCost: 5
-  essenceCost: 5
 --- !u!114 &537961326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,6 +666,11 @@ Prefab:
       propertyPath: deathFadeScreen
       value: 
       objectReference: {fileID: 1202013982}
+    - target: {fileID: 114586403205096688, guid: aecc4d959048f9b4fbabb7bbd6053cfc,
+        type: 2}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1028914484}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aecc4d959048f9b4fbabb7bbd6053cfc, type: 2}
   m_IsPrefabAsset: 0
@@ -1032,6 +1035,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &1028914484 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20134072185990410, guid: aecc4d959048f9b4fbabb7bbd6053cfc,
+    type: 2}
+  m_PrefabInternal: {fileID: 640934921}
 --- !u!114 &1051797124 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114203963846210868, guid: 36d3f2f6f3557224faa0f0a87ae69d7b,
@@ -1491,6 +1499,10 @@ Prefab:
     - target: {fileID: 4025204289994398, guid: 90e5d325e1e02bc448a6c492b09c71bd, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691738082544902, guid: 90e5d325e1e02bc448a6c492b09c71bd, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90e5d325e1e02bc448a6c492b09c71bd, type: 2}

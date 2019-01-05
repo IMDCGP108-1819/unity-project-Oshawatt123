@@ -51,6 +51,8 @@ public class PlayerMovement : MonoBehaviour {
 	// Floor Variables
 	private int floor;
 
+	public Camera mainCamera;
+
 	// Use this for initialization
 	void Start () {
 
@@ -63,6 +65,13 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+
+		if (Input.GetKey (KeyCode.R)) {
+			mainCamera.orthographicSize = 15f;
+		} else {
+			mainCamera.orthographicSize = 2.5f;
+		}
+
 		// Get RoomID of player
 		roomID = new Vector2Int ((Mathf.FloorToInt(this.transform.position.x) / 10) - 20, (Mathf.FloorToInt(this.transform.position.y) / 10) - 19);
 
@@ -162,11 +171,15 @@ public class PlayerMovement : MonoBehaviour {
 		while (true) {
 			yield return new WaitForSeconds (0.5f);
 			stamina = Mathf.Min (stamina + 2, maxStamina);
-			//playerHealth = Mathf.Min (playerHealth + 1, maxHealth);
+			playerHealth = Mathf.Min (playerHealth + 1, maxHealth);
 		}
 	}
 
 	//Coinage Functions - getters and setters (more like adders) because they really shouldn't be public
+
+	//Costs are stored in the player and not the anvil because the anvil does not persist through floors,
+	//but the player does so can keep track of this. If dealt with earlier, I could have made a seperate
+	//object or script to store all values (like costs and currencies) for the player
 
 	public void setCoin(float coinage){
 		coins += coinage;
@@ -179,6 +192,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float getCoinCost(){
 		return coinCost;
+	}
+
+	public void setCoinCost(float newCoinCost){
+		coinCost = newCoinCost;
 	}
 
 	public void setEssence(float essencage){

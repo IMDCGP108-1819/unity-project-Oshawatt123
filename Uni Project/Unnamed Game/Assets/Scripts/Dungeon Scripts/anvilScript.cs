@@ -33,6 +33,7 @@ public class anvilScript : MonoBehaviour {
 		Debug.Log ("open anvil UI");
 		AnvilUI.SetActive (true);
 		GameObject.Find ("EssenceCost").GetComponent<TextMeshProUGUI> ().text = GameObject.Find ("Player").GetComponent<PlayerMovement> ().getEssenceCost ().ToString();
+		GameObject.Find ("CoinCost").GetComponent<TextMeshProUGUI> ().text = GameObject.Find ("Player").GetComponent<PlayerMovement> ().getCoinCost ().ToString();
 	}
 
 	void OnDrawGizmos(){

@@ -111,7 +111,7 @@ public class roomTemplates : MonoBehaviour {
 		// destroy old entry room
 		Destroy(GameObject.FindGameObjectWithTag("Entry"));
 		floor = floor + 1;
-		if (floor == 3) {
+		if (floor == 4) {
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
 		}
 		spawnedBoss = false;

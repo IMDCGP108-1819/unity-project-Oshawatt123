@@ -123,7 +123,11 @@ public class roomTemplates : MonoBehaviour {
 	}
 
 	public Vector3 getFloorLocation(int floor){
-		return floors [floor];
+		if (floor == 4) {
+			return new Vector3(0,0,0);
+		} else {
+			return floors [floor];
+		}
 	}
 
 	public void destroyDestroyer(){

@@ -806,6 +806,10 @@ Prefab:
       propertyPath: essenceText
       value: 
       objectReference: {fileID: 228407124}
+    - target: {fileID: 4968359222229364, guid: aecc4d959048f9b4fbabb7bbd6053cfc, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.488
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aecc4d959048f9b4fbabb7bbd6053cfc, type: 2}
   m_IsPrefabAsset: 0
@@ -967,12 +971,12 @@ Prefab:
     - target: {fileID: 224764175868262010, guid: 2247984bf6a65c44ba88be111dd05d83,
         type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224218082947757364, guid: 2247984bf6a65c44ba88be111dd05d83,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 224583749950944372, guid: 2247984bf6a65c44ba88be111dd05d83,
         type: 2}

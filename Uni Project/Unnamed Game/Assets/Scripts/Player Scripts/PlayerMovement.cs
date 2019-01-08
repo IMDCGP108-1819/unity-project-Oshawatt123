@@ -117,6 +117,10 @@ public class PlayerMovement : MonoBehaviour {
 			rigidBody.AddForce (rigidBody.velocity * rollMod, ForceMode2D.Impulse);
 		}
 
+		if (playerHealth <= 0) {
+			die ();
+		}
+
 		//Set UI Text
 		staminaText.text = "Stamina: " + stamina.ToString();
 		healthText.text = "Health: " + playerHealth.ToString();
@@ -236,6 +240,8 @@ public class PlayerMovement : MonoBehaviour {
 		// implement the fade thingy
 		canMove = false;
 		this.transform.position = new Vector3(floorLocation.x + 1, floorLocation.y - 1, 0);
+		spawnX = floorLocation.x + 2.5f;
+		spawnY = floorLocation.y - 2.5f;
 	}
 
 }

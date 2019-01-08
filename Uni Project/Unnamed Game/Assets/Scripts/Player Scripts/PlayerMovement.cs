@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour {
 	public float essences;
 	public float essenceCost = 3f;
 
+	public Text coinText;
+	public Text essenceText;
+
 	//Movement variables
 	public Rigidbody2D rigidBody;
 	private Vector2 movement = new Vector2 (0f, 0f);
@@ -55,7 +58,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		canMove = false;
+		StartCoroutine (resetMove ());
 		// Prep for persistence of the player
 		//DontDestroyOnLoad (this.gameObject);
 		deathFadeScreen.gameObject.SetActive (true);
@@ -114,8 +118,10 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		//Set UI Text
-		staminaText.text = stamina.ToString();
-		healthText.text = playerHealth.ToString();
+		staminaText.text = "Stamina: " + stamina.ToString();
+		healthText.text = "Health: " + playerHealth.ToString();
+		coinText.text = "Coins: " + coins.ToString ();
+		essenceText.text = "Essence: " + essences.ToString ();
 
 		attackTime -= Time.deltaTime;
 	}
@@ -129,6 +135,11 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 	}*/
+
+	private IEnumerator resetMove(){
+		yield return new WaitForSeconds (5f);
+		canMove = true;
+	}
 
 	// ROLL SCRIPTS
 

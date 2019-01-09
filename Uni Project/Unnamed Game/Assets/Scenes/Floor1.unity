@@ -140,7 +140,7 @@ Transform:
   m_Children:
   - {fileID: 1511434283}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &100316058 stripped
 GameObject:
@@ -858,7 +858,7 @@ Prefab:
     - target: {fileID: 224762172377866576, guid: 2247984bf6a65c44ba88be111dd05d83,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224762172377866576, guid: 2247984bf6a65c44ba88be111dd05d83,
         type: 2}
@@ -1025,6 +1025,48 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2247984bf6a65c44ba88be111dd05d83, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1001 &728461475
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4982624607213506, guid: 5ee18f0827ad9cc438b1eb98107c4598, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 203.43668
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982624607213506, guid: 5ee18f0827ad9cc438b1eb98107c4598, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 194.18167
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982624607213506, guid: 5ee18f0827ad9cc438b1eb98107c4598, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.339
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982624607213506, guid: 5ee18f0827ad9cc438b1eb98107c4598, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982624607213506, guid: 5ee18f0827ad9cc438b1eb98107c4598, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982624607213506, guid: 5ee18f0827ad9cc438b1eb98107c4598, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982624607213506, guid: 5ee18f0827ad9cc438b1eb98107c4598, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982624607213506, guid: 5ee18f0827ad9cc438b1eb98107c4598, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ee18f0827ad9cc438b1eb98107c4598, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &844238436
 GameObject:
@@ -1349,7 +1391,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1028914484 stripped
 Camera:
@@ -1419,7 +1461,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4763739978388764, guid: 1445d99569fcec5419629279701e1bc5, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114338446750991016, guid: 1445d99569fcec5419629279701e1bc5,
         type: 2}
@@ -1689,7 +1731,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sword Upgrade
+  m_Text: Damage +3
 --- !u!222 &1123874126
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1883,7 +1925,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4025204289994398, guid: 90e5d325e1e02bc448a6c492b09c71bd, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1691738082544902, guid: 90e5d325e1e02bc448a6c492b09c71bd, type: 2}
       propertyPath: m_IsActive
@@ -2146,7 +2188,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4628003089141768, guid: 36d3f2f6f3557224faa0f0a87ae69d7b, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36d3f2f6f3557224faa0f0a87ae69d7b, type: 2}
@@ -2462,7 +2504,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Health Upgrade
+  m_Text: Max Health + 7
 --- !u!222 &2041707517
 CanvasRenderer:
   m_ObjectHideFlags: 0

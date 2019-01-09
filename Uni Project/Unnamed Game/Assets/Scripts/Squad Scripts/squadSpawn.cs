@@ -26,9 +26,9 @@ public class squadSpawn : MonoBehaviour {
 
 	void Start(){
 		// generate created squad member stats
-		squadMemberStats [0] = Random.Range (1f, 4F); // detect range
-		squadMemberStats [1] = Random.Range (3f, 7f); // attack damage
-		squadMemberStats [2] = Random.Range (20f, 150f); // health
+		squadMemberStats [0] = Random.Range(1, 4); // detect range
+		squadMemberStats [1] = Random.Range(3, 7); // attack damage
+		squadMemberStats [2] = Random.Range(20, 150); // health
 
 		SquadRecruitPopUp = GameObject.FindWithTag ("squadUIPopUp");
 		SquadRecruitPopUp.GetComponent<CanvasGroup> ().alpha = 0f;
@@ -95,6 +95,7 @@ public class squadSpawn : MonoBehaviour {
 	}
 
 	private void SquadRecruitOverlay(){
+		SquadRecruitPopUp.SetActive (true);
 		addingMember = true;
 		SquadRecruitPopUp.GetComponent<CanvasGroup> ().alpha = 1f;
 		SquadRecruitPopUp.GetComponent<CanvasGroup> ().interactable = true;

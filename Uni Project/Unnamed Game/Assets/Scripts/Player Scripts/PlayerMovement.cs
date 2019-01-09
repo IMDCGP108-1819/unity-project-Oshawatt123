@@ -178,6 +178,7 @@ public class PlayerMovement : MonoBehaviour {
 		this.transform.position = new Vector3 (spawnX, spawnY, 0f);
 		deathFadeScreen.CrossFadeAlpha (0f, 2f, true);
 		canMove = true;
+		playerHealth = maxHealth;
 	}
 
 	// STAT SCRIPTS

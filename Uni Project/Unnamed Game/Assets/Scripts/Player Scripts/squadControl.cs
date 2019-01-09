@@ -19,7 +19,7 @@ public class squadControl : MonoBehaviour {
 		Debug.Log ("no: " + squadMembers.Count);
 		foreach (GameObject squadMember in squadMembers) {
 			Debug.Log ("moving squad member");
-			squadMember.transform.position = floorLocation;
+			squadMember.transform.position = new Vector3(floorLocation.x + 1, floorLocation.y - 1, 0f);
 		}
 	}
 

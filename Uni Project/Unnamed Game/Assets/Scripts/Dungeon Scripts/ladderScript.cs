@@ -23,6 +23,7 @@ public class ladderScript : MonoBehaviour {
 		GameObject.Find ("roomTemplates").GetComponent<roomTemplates> ().newFloor();
 		floorLocation = GameObject.Find ("roomTemplates").GetComponent<roomTemplates> ().getFloorLocation(GameObject.Find("roomTemplates").GetComponent<roomTemplates>().floor);
 		GameObject.Find ("Anvil").GetComponent<anvilScript> ().openAnvilUI ();
+		GameObject.Find ("cage(Clone)").GetComponent<squadSpawn> ().openSquadUI ();
 		// Resetting and moving objects so they can work again on the new floor with no issues
 		Instantiate(entryRoom, floorLocation, Quaternion.identity);
 		GameObject.Find ("Playerparent").GetComponentInChildren<PlayerMovement> ().newFloor (floorLocation);

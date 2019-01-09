@@ -88,6 +88,12 @@ public class squadSpawn : MonoBehaviour {
 		addedMember = true;
 	}
 
+	public void openSquadUI(){
+		SquadRecruitPopUp.SetActive(true);
+		SquadRecruitPopUp.GetComponent<CanvasGroup> ().alpha = 0f;
+		SquadRecruitPopUp.GetComponent<CanvasGroup> ().interactable = false;
+	}
+
 	private void SquadRecruitOverlay(){
 		addingMember = true;
 		SquadRecruitPopUp.GetComponent<CanvasGroup> ().alpha = 1f;

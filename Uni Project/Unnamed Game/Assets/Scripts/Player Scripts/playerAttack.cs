@@ -41,9 +41,11 @@ public class playerAttack : MonoBehaviour {
 			}else if (((1 << playerLayer) & mobLayer) == 0){
 				Debug.Log("Is 0");
 			}*/
-			notAlreadyAttacked = true; // can be removed is NECESSARY but leaving as it works and don't feel like breaking this yet
+			notAlreadyAttacked = true; // can be removed if NECESSARY but leaving as it works and don't feel like breaking this yet
 			if (notAlreadyAttacked == true) {
 				playerAnim.SetTrigger ("attacking");
+				// this works for all players, squad, and enemy so I must differentiate between their scripts
+				// to reset the attack timer
 				if (attacker.CompareTag ("Player")) {
 					attacker.GetComponent<PlayerMovement> ().attackTime = attackStartTime;
 				} else if (attacker.CompareTag ("Enemy")) {
@@ -53,13 +55,15 @@ public class playerAttack : MonoBehaviour {
 				}
 				notAlreadyAttacked = false;
 				Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll (attackPos.position, new Vector2 (attackRangeX, attackRangeY), 0, mobLayer);
+				//damage all mobs in the mobLayer (e.g for a player, mobLayer is enemyLayer)
+				//bitwise operations compare the layerMask mobLayer as normal comparision doesn't work
 				for (int i = 0; i < enemiesToDamage.Length; i++) {
 					//Debug.Log ((1 << playerLayer) & mobLayer);
 					if (((1 << enemyLayer) & mobLayer) != 0){
 						//Debug.Log ("Hitting enemy");
 						enemiesToDamage [i].GetComponentInParent<Enemy_Basic> ().takeDamage (damage);
 					} else if (((1 << playerLayer) & mobLayer) != 0) {
-						//Debug.Log ("Try enemy");
+						//Debug.Log ("Hitting Player");
 						enemiesToDamage [i].GetComponentInParent<PlayerMovement>().takeDamage (damage);
 					}
 				}

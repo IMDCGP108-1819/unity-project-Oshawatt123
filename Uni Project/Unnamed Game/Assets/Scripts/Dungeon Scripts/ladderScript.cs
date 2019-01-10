@@ -19,6 +19,10 @@ public class ladderScript : MonoBehaviour {
 	}
 	
 	public void nextScene(){
+
+		// nextScene() used to change to the next scene, but now
+		// new floors work differently, although the name persists
+
 		//SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
 		GameObject.Find ("roomTemplates").GetComponent<roomTemplates> ().newFloor();
 		floorLocation = GameObject.Find ("roomTemplates").GetComponent<roomTemplates> ().getFloorLocation(GameObject.Find("roomTemplates").GetComponent<roomTemplates>().floor);
@@ -39,6 +43,7 @@ public class ladderScript : MonoBehaviour {
 		}
 	}
 
+	// gizmo for visualisation of interaction space
 	void OnDrawGizmos(){
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireCube (this.transform.position, new Vector3 (detectX, detectY, 0));

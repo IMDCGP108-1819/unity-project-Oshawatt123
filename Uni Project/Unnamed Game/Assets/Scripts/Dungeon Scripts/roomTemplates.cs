@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class roomTemplates : MonoBehaviour {
 
+	// this class handles everything to do with the rooms as a dungeon
+
 	public GameObject[] bottomRooms;
 	public GameObject[] topRooms;
 	public GameObject[] leftRooms;
@@ -58,17 +60,22 @@ public class roomTemplates : MonoBehaviour {
 			if (rooms.Count >= 8) {
 				spawnPuzzle ();
 			}
-
-			// SWITCH THE BOSS SPAWNY THING TO ONE MORE LIKE THE PUZZLE AND HAVE SOME PRE-SET BOSS ROOMS
+			// vv future stuff vv
+			// SWITCH THE BOSS SPAWN TO ONE MORE LIKE THE PUZZLE AND HAVE SOME PRE-SET BOSS ROOMS
 			// WORKS BETTER AND MORE FUN FOR THE PLAYER
+			// ^^ future stuff ^^
+
+			//destroy the Destroyer gameObject, as it will also destroy the player, which is bad
 			destroyDestroyer();
-			Debug.Log ("spawning boss");
+			//Debug.Log ("spawning boss"); <- debugging
+			//spawn the boss and cage and ladder at the last room created within the 5 second period
 			spawnedBoss = true;
 			Instantiate (boss, rooms[rooms.Count-1].transform.position, Quaternion.identity);
 			Vector3 cagePos = new Vector3 (rooms [rooms.Count - 1].transform.position.x - 1, rooms [rooms.Count - 1].transform.position.y - 1, -1);
 			Instantiate (cage, cagePos, Quaternion.identity);
 			Vector3 ladderPos = new Vector3 (rooms [rooms.Count - 1].transform.position.x - 3, rooms [rooms.Count - 1].transform.position.y - 3, -1);
 			Instantiate (ladder, ladderPos, Quaternion.identity);
+			// allow the player to move once it is safe to
 			GameObject.Find ("Player").GetComponent<PlayerMovement> ().setCanMove (true);
 		} else {
 			waitTime -= Time.deltaTime;
@@ -76,15 +83,18 @@ public class roomTemplates : MonoBehaviour {
 	}
 
 	void spawnPuzzle(){
-		Debug.Log (puzzleDoors [0]);
+		//Debug.Log (puzzleDoors [0]); <- debugging
 		bool puzzleFound = false;
 		int numOfCorrectDoors = 0;
+		// get the room that will become the puzzle room
 		for (int i = rooms.Count-2; i > 3; i--) {
 			if (!puzzleFound) {
 				puzzleRoom = rooms [i];
 				puzzleRoomIndex = i;
 			}
-			Debug.Log (puzzleRoom);
+			//Debug.Log (puzzleRoom);
+
+			// checking if the room is correct for the puzzle (needs a top opening and a bottom opening
 			foreach (Transform child in puzzleRoom.transform) {
 				if (child.CompareTag ("spawnPoint") && !puzzleFound) {
 					int openingDir = child.GetComponent<roomSpawner> ().openingDirection;
@@ -100,6 +110,7 @@ public class roomTemplates : MonoBehaviour {
 			numOfCorrectDoors = 0;
 		}
 		if (puzzleFound) {
+			// create the puzzle room
 			Instantiate(puzzleHelpObject, rooms[Random.Range(0, puzzleRoomIndex-1)].transform.position, Quaternion.identity);
 			Instantiate (puzzleRooms [0], puzzleRoom.transform.position, Quaternion.identity);
 			Destroy (puzzleRoom);
@@ -112,8 +123,10 @@ public class roomTemplates : MonoBehaviour {
 		Destroy(GameObject.FindGameObjectWithTag("Entry"));
 		floor = floor + 1;
 		if (floor == 4) {
+			// loads the finishScene is the floor is 4 (there are only floors 0,1,2,3 so 4 would create an index error otherwise)
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
 		}
+		//reset the floor, ready for the creation of a new one
 		spawnedBoss = false;
 		waitTime = 5f;
 		foreach (GameObject room in rooms) {

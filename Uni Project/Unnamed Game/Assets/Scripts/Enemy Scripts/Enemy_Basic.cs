@@ -49,11 +49,14 @@ public class Enemy_Basic : MonoBehaviour {
 		if (awareOfPlayer && !dazed) {
 			playerPos = new Vector2 (player.transform.position.x, player.transform.position.y);
 			toPlayer = playerPos - new Vector2 (this.transform.position.x, this.transform.position.y);
-			//Conditional movement
+
+			// vv future stuff vv
+			// Conditional movement
 			// once near enough to the player to attack, then attack!!!
 			// asleep enemies will be woken on contact (movement by player collision)
+			// ^^ future stuff ^^
 
-			mag = Mathf.Sqrt (toPlayer.x * toPlayer.x + toPlayer.y * toPlayer.y);
+			mag = Mathf.Sqrt (toPlayer.x * toPlayer.x + toPlayer.y * toPlayer.y); // magnitude of the vector
 			toPlayerUnit = toPlayer / mag;
 			if (health <= (maxHealth / 10)) {
 				rigidBody.velocity = -toPlayerUnit;

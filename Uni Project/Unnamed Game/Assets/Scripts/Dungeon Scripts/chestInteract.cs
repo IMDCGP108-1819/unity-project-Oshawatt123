@@ -20,7 +20,7 @@ public class chestInteract : MonoBehaviour {
 
 	private bool lootSpawned = false;
 
-	public spawnLoot spawnScript;
+	public spawnLoot spawnScript; // script to spawn loot
 
 	// Use this for initialization
 	void Start () {
@@ -34,7 +34,7 @@ public class chestInteract : MonoBehaviour {
 			Collider2D[] nearbyObjects_Chest = Physics2D.OverlapBoxAll (pos, detectSize, 0, playerLayer);
 			Debug.Log (nearbyObjects_Chest.Length);
 			if(nearbyObjects_Chest.Length > 0){
-				Debug.Log ("Opening chest");
+				//Debug.Log ("Opening chest"); <- debugging
 				chestAnim.SetTrigger ("openChest");
 				//set trigger on chest animation
 			}
@@ -47,15 +47,12 @@ public class chestInteract : MonoBehaviour {
 	}
 
 	public void spawnLoot(){
+		//spawning the loot, but only once per chest
 		if (!lootSpawned) {
-			Debug.Log ("Spawning Loot");
+			//Debug.Log ("Spawning Loot"); <- debugging
 			lootSpawned = true;
 			spawnScript.lootSpawn (2);
 
 		}
-		// shower coins everywhere
-		// create coins
-		// 
-		// create own "particle system" for it
 	}
 }

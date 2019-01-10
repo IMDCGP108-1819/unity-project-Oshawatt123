@@ -45,6 +45,10 @@ public class roomSpawner : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
+		// this checks if 2 spawnPoints have spawned ontop one another and neither has spawned a room yet
+		// if so, they are both destroyed and a "closedRoom" is spawned instead
+		// this stops some weird room spawns in the dungeon, and also prevents the player from running
+		// around outside the dungeon space
 		if (other.CompareTag ("spawnPoint")) {
 			var roomSpawn = other.GetComponent<roomSpawner> ();
 			if (roomSpawn != null && roomSpawn.spawned == false && spawned == false) {

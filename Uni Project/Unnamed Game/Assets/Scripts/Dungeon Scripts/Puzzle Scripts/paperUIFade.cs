@@ -9,7 +9,7 @@ public class paperUIFade : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		paperImage = this.GetComponent<Image> ();
+		paperImage = this.GetComponent<Image> (); // get the image property of the object so I can edit the alpha
 		StartCoroutine (fadeAndDestroy ());
 	}
 	

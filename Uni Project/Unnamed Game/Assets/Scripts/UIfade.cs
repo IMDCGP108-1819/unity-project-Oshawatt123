@@ -6,12 +6,8 @@ public class UIfade : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//makes the UI invisible and non-interactable
 		this.GetComponent<CanvasGroup> ().alpha = 0f;
 		this.GetComponent<CanvasGroup> ().interactable = false;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

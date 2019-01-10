@@ -17,7 +17,7 @@ public class anvilScript : MonoBehaviour {
 	void Start () {
 		detectSize = new Vector2 (detectX, detectY);
 		AnvilUI = GameObject.Find ("AnvilPopUp");
-		AnvilUI.SetActive (false);
+		AnvilUI.SetActive (false); // set the UI inactive so it doesn't show
 	}
 	
 	void Update(){
@@ -31,11 +31,13 @@ public class anvilScript : MonoBehaviour {
 
 	public void openAnvilUI(){
 		Debug.Log ("open anvil UI");
+		// set active the UI so it can be seen and set the text of the cost elements
 		AnvilUI.SetActive (true);
-		GameObject.Find ("EssenceCost").GetComponent<TextMeshProUGUI> ().text = GameObject.Find ("Player").GetComponent<PlayerMovement> ().getEssenceCost ().ToString()+ " coins";
-		GameObject.Find ("CoinCost").GetComponent<TextMeshProUGUI> ().text = GameObject.Find ("Player").GetComponent<PlayerMovement> ().getCoinCost ().ToString() + " essence";
+		GameObject.Find ("EssenceCost").GetComponent<TextMeshProUGUI> ().text = GameObject.Find ("Player").GetComponent<PlayerMovement> ().getEssenceCost ().ToString()+ " essences";
+		GameObject.Find ("CoinCost").GetComponent<TextMeshProUGUI> ().text = GameObject.Find ("Player").GetComponent<PlayerMovement> ().getCoinCost ().ToString() + " coins";
 	}
 
+	// gizmo for visual aid with the interaction space
 	void OnDrawGizmos(){
 		Gizmos.color = Color.magenta;
 		Gizmos.DrawWireCube (this.transform.position, new Vector3 (detectX, detectY, 0));

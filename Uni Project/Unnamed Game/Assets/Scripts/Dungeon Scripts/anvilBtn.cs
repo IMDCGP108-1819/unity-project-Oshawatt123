@@ -17,7 +17,7 @@ public class anvilBtn : MonoBehaviour {
 	public void upgradeSword(){
 		// grab the coinCost variables from the player as it is used multiple times
 		float coinCost = player.GetComponent<PlayerMovement> ().getCoinCost ();
-		if (player.GetComponent<PlayerMovement> ().getCoin() > coinCost) { // check player has enough coins
+		if (player.GetComponent<PlayerMovement> ().getCoin() >= coinCost) { // check player has enough coins
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<playerAttack> ().damage += 3; // increment their damage stat
 			player.GetComponent<PlayerMovement> ().setCoin (-coinCost); // charge the player for their purchase
 			player.GetComponent<PlayerMovement> ().setCoinCost (calculateNewCost(coinCost)); // set the new coin cost in the player
@@ -31,7 +31,7 @@ public class anvilBtn : MonoBehaviour {
 
 	public void upgradeHealth(){
 		float essenceCost = player.GetComponent<PlayerMovement> ().getEssenceCost ();
-		if (player.GetComponent<PlayerMovement> ().getEssence () > essenceCost) {
+		if (player.GetComponent<PlayerMovement> ().getEssence () >= essenceCost) {
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerMovement> ().maxHealth += 7;
 			player.GetComponent<PlayerMovement> ().setEssence (-essenceCost);
 			player.GetComponent<PlayerMovement> ().setEssenceCost (calculateNewCost(essenceCost));

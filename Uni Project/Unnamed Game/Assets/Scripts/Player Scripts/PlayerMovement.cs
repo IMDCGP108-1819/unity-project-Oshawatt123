@@ -240,7 +240,8 @@ public class PlayerMovement : MonoBehaviour {
 	public void newFloor(Vector3 floorLocation){
 		// implement the fade thingy
 		canMove = false;
-		this.transform.position = new Vector3(floorLocation.x + 1, floorLocation.y - 1, 0);
+		movement = new Vector2 (0f, 0f);
+		this.transform.position = new Vector3(floorLocation.x + 2, floorLocation.y - 2, 0);
 		spawnX = floorLocation.x + 2.5f;
 		spawnY = floorLocation.y - 2.5f;
 	}

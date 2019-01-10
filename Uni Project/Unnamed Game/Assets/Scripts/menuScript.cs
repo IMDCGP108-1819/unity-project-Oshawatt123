@@ -18,10 +18,12 @@ public class menuScript : MonoBehaviour {
 	}
 
 	public void loadLevel(string sceneToLoad){
+		//Async loads 
 		SceneManager.LoadSceneAsync(sceneToLoad);
 	}
 
 	public void HTPScreen(){
+		// open the HowToPlay screen and hide the MainMenu
 		MainGroup.alpha = 0f;
 		MainGroup.interactable = false;
 		HTPGroup.alpha = 1f;
@@ -29,6 +31,7 @@ public class menuScript : MonoBehaviour {
 	}
 
 	public void MainScreen(){
+		// open the MainMenu and hide the HowToPlay screen
 		MainGroup.alpha = 1f;
 		MainGroup.interactable = true;
 		HTPGroup.alpha = 0f;
